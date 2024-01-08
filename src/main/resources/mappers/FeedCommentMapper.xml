@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.greengram.greengram4.feed.FeedCommentMapper">
+    <insert id="insFeedComment" useGeneratedKeys="true" keyProperty="ifeedComment">
+        INSERT INTO t_feed_comment
+        SET iuser = #{iuser}
+        , ifeed = #{ifeed}
+        , comment = #{comment}
+    </insert>
+
+    <select id="selFeedCommentAll">
+        SELECT B.ifeed_comment AS ifeedComment, B.comment
+        , B.created_at as createdAt, A.iuser as writerIuser
+        , A.nm as writerNm, A.pic as writerPic
+        FROM t_user A
+        JOIN t_feed_comment B
+        ON A.iuser = B.iuser
+        WHERE ifeed = #{ifeed}
+        order by B.ifeed_comment
+        LIMIT #{startIdx}, #{rowCount}
+    </select>
+
+    <delete id="feedDelComment">
+        DELETE
+        FROM t_feed_comment
+        WHERE ifeed = #{ifeed}
+    </delete>
+
+</mapper>

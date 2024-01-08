@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.greengram.greengram4.user.UserMapper">
+    <insert id="insUser" useGeneratedKeys="true" keyProperty="iuser">
+        INSERT INTO t_user
+        SET uid = #{uid}
+        , upw = #{upw}
+        , nm = #{nm}
+        <if test="pic !=null and pic != ''">
+            ,pic = #{pic}
+        </if>
+    </insert>
+
+    <select id="selUser">
+        SELECT iuser, upw, nm, pic, created_at as createdAt
+        FROM t_user
+        <where>
+            <if test="uid != null and uid !='' ">
+                uid = #{uid}
+            </if>
+            <if test="iuser >0">
+                iuser = #{iuser}
+            </if>
+        </where>
+    </select>
+
+    <delete id="delFollow">
+        DELETE
+        FROM t_user_follow
+        WHERE from_iuser =#{fromIuser}
+        AND to_iuser = #{toIuser}
+    </delete>
+
+    <insert id="insFollow">
+        INSERT t_user_follow
+        SET from_iuser =#{fromIuser}
+        ,to_iuser = #{toIuser}
+    </insert>
+
+    <select id="userInfo">
+        SELECT COUNT(DISTINCT B.ifeed) as feedCnt, COUNT(c.ifeed) as favCnt
+        , A.nm, A.created_at as createdAt, A.pic
+        , D.follower, D.following, D.followState
+        FROM t_user A
+        LEFT JOIN t_feed B
+        ON A.iuser = B.iuser
+        LEFT JOIN t_feed_fav C
+        ON B.ifeed = C.ifeed
+        JOIN
+        (SELECT SUM(IF(from_iuser = #{targetIuser}, 1, 0)) AS following
+        , SUM(IF(to_iuser = #{targetIuser}, 1, 0)) AS follower
+        , (
+        SUM(if(from_iuser = #{loginedIuser} AND to_iuser =#{targetIuser},1,0))
+        + SUM(if(from_iuser = #{targetIuser} AND to_iuser =#{loginedIuser},2,0))
+        ) AS followState
+        FROM t_user_follow
+        ) D
+        WHERE A.iuser = #{targetIuser}
+    </select>
+
+    <update id="updUserFirebaseToken">
+        UPDATE t_user
+        SET firebase_token = #{firebaseToken}
+        WHERE iuser = #{iuser}
+    </update>
+
+</mapper>
