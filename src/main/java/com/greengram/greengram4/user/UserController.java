@@ -26,7 +26,7 @@ public class UserController {
 
     @PostMapping("/signin")
     @Operation(summary = "인증",description = "아이디/비번을 활용한 인증처리")
-    public UserSignVo postSignin(@RequestBody UserSigninDto dto){
+    public UserSigninVo postSignin(@RequestBody UserSigninDto dto){
         return service.signin(dto);
     }
 

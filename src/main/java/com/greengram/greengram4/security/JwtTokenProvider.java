@@ -47,7 +47,14 @@ public class JwtTokenProvider { //토큰 만들어 줌
         this.key = Keys.hmacShaKeyFor(keyBytes);
     }
 
-    public String generateToken(MyPrincipal principal, long tokenValidMs) {//토큰 만들기
+    public String generateAccessToken(MyPrincipal principal){
+        return generateToken(principal, appProperties.getJwt().getRefreshTokenExpiry());
+    }
+
+    public String generateRefreshToken(MyPrincipal principal){
+        return generateToken(principal, appProperties.getJwt().getAccessTokenExpiry());
+    }
+    private String generateToken(MyPrincipal principal, long tokenValidMs) {//토큰 만들기
         //Date now = new Date();
         return Jwts.builder()
                 //.issuedAt(now)
