@@ -2,10 +2,13 @@ package com.greengram.greengram4.user;
 
 import com.greengram.greengram4.common.AppProperties;
 import com.greengram.greengram4.common.Const;
+import com.greengram.greengram4.common.CookieUtils;
 import com.greengram.greengram4.common.ResVo;
 import com.greengram.greengram4.security.JwtTokenProvider;
 import com.greengram.greengram4.security.MyPrincipal;
 import com.greengram.greengram4.user.model.*;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -18,9 +21,10 @@ public class UserService {
     private final PasswordEncoder passwordEncoder;
     private final JwtTokenProvider jwtTokenProvider;
     private final AppProperties appProperties;
+    private final CookieUtils cookieUtils;
 
 
-    public ResVo signup(UserSignupDto dto){
+    public ResVo signup(UserSignupDto dto) {
         //String hashcode = BCrypt.hashpw(dto.getUpw(),BCrypt.gensalt());
         String hashedPw = passwordEncoder.encode(dto.getUpw());
         UserSignupProcDto pDto = UserSignupProcDto.builder()
@@ -32,22 +36,25 @@ public class UserService {
         mapper.insUser(pDto);
         return new ResVo(pDto.getIuser());
     }
+
     public ResVo patchUserFirebaseToken(UserFirebaseTokenPatchDto dto) {
         int affectedRows = mapper.updUserFirebaseToken(dto);
         return new ResVo(affectedRows);
     }
 
 
-    public UserSigninVo signin(UserSigninDto dto){
+    public UserSigninVo signin(HttpServletRequest req, HttpServletResponse res, UserSigninDto dto) {
+
+
         UserSelDto sDto = new UserSelDto();
         sDto.setUid(dto.getUid());
         UserSigninVo vo = new UserSigninVo();
 
         UserEntity entity = mapper.selUser(sDto);
-        if(entity == null){
+        if (entity == null) {
             vo.setResult(Const.LOGIN_NO_UID);
-        //} else if(!BCrypt.checkpw(dto.getUpw(),entity.getUpw())) {
-        } else if(!passwordEncoder.matches(dto.getUpw(),entity.getUpw())) {
+            //} else if(!BCrypt.checkpw(dto.getUpw(),entity.getUpw())) {
+        } else if (!passwordEncoder.matches(dto.getUpw(), entity.getUpw())) {
             vo.setResult(Const.LOGIN_DIFF_UPW);
         } else {
             vo.setResult(Const.SUCCESS);
@@ -62,14 +69,21 @@ public class UserService {
                 .build();
         String at = jwtTokenProvider.generateAccessToken(myPrincipal);
         String rt = jwtTokenProvider.generateRefreshToken(myPrincipal);
+
+        //rt를 쿠키에 담음
+        /*int rtCookieMaxAge = (int) appProperties.getJwt().getRefreshTokenExpiry() / 1000;
+        cookieUtils.deleteCookie(req,res,"rt");
+        cookieUtils.setCookie(res,"rt",rt,rtCookieMaxAge);*/
+
+
         vo.setAccessToken(at);
         return vo;
     }
 
-    public ResVo follow(UserFollowDto dto){
+    public ResVo follow(UserFollowDto dto) {
         int result = mapper.delFollow(dto);
 
-        if(result == 0){
+        if (result == 0) {
             mapper.insFollow(dto);
             return new ResVo(Const.SUCCESS);
         }
@@ -77,7 +91,7 @@ public class UserService {
     }
 
 
-    public UserInfoVo userInfo(UserInfoDto dto){
+    public UserInfoVo userInfo(UserInfoDto dto) {
         return mapper.userInfo(dto);
 
     }

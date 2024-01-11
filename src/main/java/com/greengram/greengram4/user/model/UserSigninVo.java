@@ -12,5 +12,4 @@ public class UserSigninVo {
     private String accessToken;
 
 
-
 }

@@ -13,7 +13,7 @@ public class MyUserDetails implements UserDetails {
     private MyPrincipal myPrincipal;
 
     @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
+    public Collection<? extends GrantedAuthority> getAuthorities() { //호출후 값으로 권한 처리
         return null;
     }
 

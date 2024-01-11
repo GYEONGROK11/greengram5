@@ -6,6 +6,7 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
+import io.jsonwebtoken.SignatureAlgorithm;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,6 +17,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import javax.crypto.spec.SecretKeySpec;
 import java.security.Key;
 import java.util.Date;
 
@@ -26,7 +28,8 @@ public class JwtTokenProvider { //토큰 만들어 줌
 
     private final ObjectMapper om; //잭슨 라이브러리에 있음 json을 객체로 반대도 가능
     private final AppProperties appProperties;
-    private Key key;
+    //private Key key;
+    private SecretKeySpec secretKeySpec;
 
     /*public JwtTokenProvider(@Value("${springboot.jwt.secret}") String secret
             , @Value("${springboot.jwt.header-scheme-name}") String headerSchemeName
@@ -42,9 +45,8 @@ public class JwtTokenProvider { //토큰 만들어 줌
     //빈등록 : 스프링컨테이너에 의해 객체생성됨
     public void init() {
         log.info("secret:{}", appProperties.getJwt().getSecret());
-        byte[] keyBytes = Decoders.BASE64.decode(appProperties.getJwt().getSecret());
-        log.info("KeysBytes:{}", keyBytes);
-        this.key = Keys.hmacShaKeyFor(keyBytes);
+        this.secretKeySpec = new SecretKeySpec(appProperties.getJwt().getSecret().getBytes()
+                , SignatureAlgorithm.HS256.getJcaName());
     }
 
     public String generateAccessToken(MyPrincipal principal){
@@ -54,6 +56,8 @@ public class JwtTokenProvider { //토큰 만들어 줌
     public String generateRefreshToken(MyPrincipal principal){
         return generateToken(principal, appProperties.getJwt().getAccessTokenExpiry());
     }
+
+
     private String generateToken(MyPrincipal principal, long tokenValidMs) {//토큰 만들기
         //Date now = new Date();
         return Jwts.builder()
@@ -61,11 +65,12 @@ public class JwtTokenProvider { //토큰 만들어 줌
                 .claims(createClaims(principal))//토큰
                 .issuedAt(new Date(System.currentTimeMillis()))//발행시간
                 .expiration(new Date(System.currentTimeMillis() + tokenValidMs))//만료시간
-                .signWith(this.key)//암호화
+                .signWith(secretKeySpec)//암호화
                 .compact();
     }
 
-    private Claims createClaims(MyPrincipal principal){//항목이 추가 될 때마다 add 계속함
+    private Claims createClaims(MyPrincipal principal){//토큰 값 생성하기
+        //항목이 추가 될 때마다 add 계속함
         //그래서 json 문자열로 바꿔서 통째로 넣음
         try{
         String json =om.writeValueAsString(principal);
@@ -105,13 +110,23 @@ public class JwtTokenProvider { //토큰 만들어 줌
             return false;
         }
     }
-    private Claims getAllClaims(String token) {
+   /* private Claims getAllClaims(String token) {
         return Jwts.parser()
                 .setSigningKey(key)
                 .build()
                 .parseClaimsJws(token)
                 .getBody();
-    }
+    } 버전업 됨 */
+
+    private Claims getAllClaims(String token) {
+       return Jwts
+               .parser()
+               .verifyWith(secretKeySpec)
+               .build()
+               .parseSignedClaims(token)
+               .getPayload();
+   }
+
 
     public Authentication getAuthentication(String token){
         UserDetails userDetails = getUserDetailsFromToken(token);
