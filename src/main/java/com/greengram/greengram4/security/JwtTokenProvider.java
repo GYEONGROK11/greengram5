@@ -69,7 +69,7 @@ public class JwtTokenProvider { //토큰 만들어 줌
                 .compact();
     }
 
-    private Claims createClaims(MyPrincipal principal){//토큰 값 생성하기
+    public Claims createClaims(MyPrincipal principal){//토큰 값 생성하기
         //항목이 추가 될 때마다 add 계속함
         //그래서 json 문자열로 바꿔서 통째로 넣음
         try{
@@ -134,7 +134,7 @@ public class JwtTokenProvider { //토큰 만들어 줌
                 ? null
                 : new UsernamePasswordAuthenticationToken(userDetails,"",userDetails.getAuthorities());
     }
-    private UserDetails getUserDetailsFromToken(String token){
+    public UserDetails getUserDetailsFromToken(String token){
         try{
             Claims claims = getAllClaims(token);
             String json = (String)claims.get("user");

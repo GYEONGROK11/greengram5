@@ -1,12 +1,17 @@
 package com.greengram.greengram4.user;
 
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.greengram.greengram4.common.AppProperties;
 import com.greengram.greengram4.common.Const;
 import com.greengram.greengram4.common.CookieUtils;
 import com.greengram.greengram4.common.ResVo;
 import com.greengram.greengram4.security.JwtTokenProvider;
 import com.greengram.greengram4.security.MyPrincipal;
+import com.greengram.greengram4.security.MyUserDetails;
 import com.greengram.greengram4.user.model.*;
+
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
@@ -43,7 +48,7 @@ public class UserService {
     }
 
 
-    public UserSigninVo signin(HttpServletRequest req, HttpServletResponse res, UserSigninDto dto) {
+    public UserSigninVo signin(HttpServletResponse res, UserSigninDto dto) {
 
 
         UserSelDto sDto = new UserSelDto();
@@ -71,11 +76,45 @@ public class UserService {
         String rt = jwtTokenProvider.generateRefreshToken(myPrincipal);
 
         //rt를 쿠키에 담음
-        /*int rtCookieMaxAge = (int) appProperties.getJwt().getRefreshTokenExpiry() / 1000;
-        cookieUtils.deleteCookie(req,res,"rt");
-        cookieUtils.setCookie(res,"rt",rt,rtCookieMaxAge);*/
+
+        int rtCookieMaxAge = appProperties.getJwt().getRefreshTokenCookieMaxAge();
+        cookieUtils.deleteCookie(res,"rt");
+        cookieUtils.setCookie(res,"rt",rt,rtCookieMaxAge);
 
 
+        vo.setAccessToken(at);
+        return vo;
+    }
+
+    public ResVo signout(HttpServletResponse res){
+        cookieUtils.deleteCookie(res,"rt");
+        return new ResVo(1);
+    }
+
+    public UserSigninVo getRefreshToken(HttpServletRequest req){//at를 다시 만들어줌
+        Cookie cookie = cookieUtils.getCookie(req,"rt");
+        UserSigninVo vo = new UserSigninVo();
+
+        if(cookie == null){
+            vo.setResult(Const.FAIL);
+            vo.setAccessToken(null);
+            return vo;
+        }
+
+        String token = cookie.getValue();
+
+        if(!jwtTokenProvider.isValidateToken(token)){
+            vo.setResult(Const.FAIL);
+            vo.setAccessToken(null);
+            return vo;
+        }
+
+        MyUserDetails myUserDetails = (MyUserDetails) jwtTokenProvider.getUserDetailsFromToken(token);
+        MyPrincipal myPrincipal = myUserDetails.getMyPrincipal();
+
+        String at = jwtTokenProvider.generateAccessToken(myPrincipal);
+
+        vo.setResult(Const.SUCCESS);
         vo.setAccessToken(at);
         return vo;
     }
