@@ -65,4 +65,10 @@
         WHERE iuser = #{iuser}
     </update>
 
+    <update id="updUserPic">
+        update t_user
+        set pic=#{pic}
+        where iuser=#{iuser}
+    </update>
+
 </mapper>

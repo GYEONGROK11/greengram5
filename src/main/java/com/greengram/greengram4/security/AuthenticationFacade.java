@@ -11,13 +11,13 @@ public class AuthenticationFacade {
 
         return (MyUserDetails)SecurityContextHolder
                 .getContext()
-                .getAuthentication()
+                .getAuthentication() //토큰값이 넘어옴
                 .getPrincipal(); //오브젝트에서 형변환
     }
 
     public int getLoginUserPk(){
         MyUserDetails myUserDetails = getLoginUser();
-        return myUserDetails ==null
+        return myUserDetails == null
                 ? 0
                 : myUserDetails
                 .getMyPrincipal()

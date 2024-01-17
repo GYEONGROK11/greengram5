@@ -43,7 +43,7 @@ class FeedControllerTest {
     @Test
     void postFeed() throws Exception {
         ResVo result = new ResVo(5);
-        when(service.postFeed(any())).thenReturn(result);
+        //when(service.postFeed(any())).thenReturn(result);
         //given(service.postFeed(any())).willReturn(result);
 
         FeedInsDto dto = new FeedInsDto();

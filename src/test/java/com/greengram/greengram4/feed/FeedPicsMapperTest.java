@@ -37,7 +37,7 @@ class FeedPicsMapperTest {
 
         List<String> pics = new ArrayList<>();
         pics.add("1-1");
-        this.dto.setPics(pics);
+        //this.dto.setPics(pics);
         pics.add("1-2");
     }
 

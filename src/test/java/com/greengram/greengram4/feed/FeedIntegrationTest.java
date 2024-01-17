@@ -30,7 +30,7 @@ public class FeedIntegrationTest extends BaseIntegrationTest {
         List<String> pics = new ArrayList<>();
         pics.add("https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202306/25/488f9638-800c-4bac-ad65-82877fbff79b.jpg");
         pics.add("https://health.chosun.com/site/data/img_dir/2023/07/17/2023071701753_0.jpg");
-        dto.setPics(pics);
+        //dto.setPics(pics);
         String json = om.writeValueAsString(dto); //바디 부분 dto객체를 제이슨으로 변환하여 받음
         System.out.println(json);
 

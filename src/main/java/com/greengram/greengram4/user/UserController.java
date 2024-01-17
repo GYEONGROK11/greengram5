@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @Slf4j
 @RestController
@@ -37,6 +38,12 @@ public class UserController {
     public ResVo postSignout(HttpServletResponse res){
 
         return service.signout(res);
+    }
+
+
+    @PatchMapping("/pic")
+    public UserPicPatchDto patchUserPic(@RequestBody MultipartFile pic) {
+        return service.patchUserPic(pic);
     }
 
     @GetMapping("/refresh-token")

@@ -2,10 +2,8 @@ package com.greengram.greengram4.user;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.greengram.greengram4.common.AppProperties;
-import com.greengram.greengram4.common.Const;
-import com.greengram.greengram4.common.CookieUtils;
-import com.greengram.greengram4.common.ResVo;
+import com.greengram.greengram4.common.*;
+import com.greengram.greengram4.security.AuthenticationFacade;
 import com.greengram.greengram4.security.JwtTokenProvider;
 import com.greengram.greengram4.security.MyPrincipal;
 import com.greengram.greengram4.security.MyUserDetails;
@@ -17,6 +15,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 
 @Service
@@ -27,7 +26,8 @@ public class UserService {
     private final JwtTokenProvider jwtTokenProvider;
     private final AppProperties appProperties;
     private final CookieUtils cookieUtils;
-
+    private final AuthenticationFacade authenticationFacade;
+    private final MyFileUtils myFileUtils;
 
     public ResVo signup(UserSignupDto dto) {
         //String hashcode = BCrypt.hashpw(dto.getUpw(),BCrypt.gensalt());
@@ -89,6 +89,17 @@ public class UserService {
     public ResVo signout(HttpServletResponse res){
         cookieUtils.deleteCookie(res,"rt");
         return new ResVo(1);
+    }
+
+    public UserPicPatchDto patchUserPic(MultipartFile pic) {
+        UserPicPatchDto dto = new UserPicPatchDto();
+        dto.setIuser(authenticationFacade.getLoginUserPk());
+        String path = "/user/"+dto.getIuser();
+        myFileUtils.delFolderTrigger(path);
+        String savedPicFileNm = myFileUtils.transferTo(pic, path);
+        dto.setPic(savedPicFileNm);
+        int affectedRows = mapper.updUserPic(dto);
+        return dto;
     }
 
     public UserSigninVo getRefreshToken(HttpServletRequest req){//at를 다시 만들어줌
