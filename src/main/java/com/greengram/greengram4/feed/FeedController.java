@@ -1,9 +1,12 @@
 package com.greengram.greengram4.feed;
 
 import com.greengram.greengram4.common.ResVo;
+import com.greengram.greengram4.exception.FeedErrorCode;
+import com.greengram.greengram4.exception.RestApiException;
 import com.greengram.greengram4.feed.model.*;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -23,8 +26,8 @@ public class FeedController {
     @Operation(summary = "피드 등록",description = "피드 등록 처리")
     @PostMapping
     //public ResVo postFeed(@RequestBody FeedInsDto dto){
-    public FeedPicsInsDto postFeed(@RequestPart List<MultipartFile> pics, @RequestPart FeedInsDto dto){
-        log.info("{}",pics.size());
+    public FeedPicsInsDto postFeed(@RequestPart(required = false) List<MultipartFile> pics, @RequestPart FeedInsDto dto){
+
         log.info("{}",dto);
         dto.setPics(pics);
         return service.postFeed(dto);
@@ -50,7 +53,7 @@ public class FeedController {
     }
 
     @PostMapping("/comment")
-    public ResVo postComment(@RequestBody FeedCommentInsDto dto){
+    public ResVo postComment(@Valid @RequestBody FeedCommentInsDto dto){
         return service.postComment(dto);
     }
 

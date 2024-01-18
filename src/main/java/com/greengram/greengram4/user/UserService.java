@@ -3,6 +3,8 @@ package com.greengram.greengram4.user;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.greengram.greengram4.common.*;
+import com.greengram.greengram4.exception.AuthErrorCode;
+import com.greengram.greengram4.exception.RestApiException;
 import com.greengram.greengram4.security.AuthenticationFacade;
 import com.greengram.greengram4.security.JwtTokenProvider;
 import com.greengram.greengram4.security.MyPrincipal;
@@ -12,6 +14,7 @@ import com.greengram.greengram4.user.model.*;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -48,19 +51,19 @@ public class UserService {
     }
 
 
-    public UserSigninVo signin(HttpServletResponse res, UserSigninDto dto) {
-
-
+    public UserSigninVo signin(HttpServletRequest req, HttpServletResponse res, UserSigninDto dto) {
         UserSelDto sDto = new UserSelDto();
         sDto.setUid(dto.getUid());
         UserSigninVo vo = new UserSigninVo();
 
         UserEntity entity = mapper.selUser(sDto);
         if (entity == null) {
-            vo.setResult(Const.LOGIN_NO_UID);
+            //vo.setResult(Const.LOGIN_NO_UID);
+            throw new RestApiException(AuthErrorCode.NOT_EXIST_USER_ID);
             //} else if(!BCrypt.checkpw(dto.getUpw(),entity.getUpw())) {
         } else if (!passwordEncoder.matches(dto.getUpw(), entity.getUpw())) {
-            vo.setResult(Const.LOGIN_DIFF_UPW);
+            //vo.setResult(Const.LOGIN_DIFF_UPW);
+            throw new RestApiException(AuthErrorCode.VALID_PASSWORD);
         } else {
             vo.setResult(Const.SUCCESS);
             vo.setIuser(entity.getIuser());
@@ -80,6 +83,10 @@ public class UserService {
         int rtCookieMaxAge = appProperties.getJwt().getRefreshTokenCookieMaxAge();
         cookieUtils.deleteCookie(res,"rt");
         cookieUtils.setCookie(res,"rt",rt,rtCookieMaxAge);
+
+        HttpSession session = req.getSession(true);
+        session.setAttribute("loginUserPk",entity.getIuser());
+
 
 
         vo.setAccessToken(at);

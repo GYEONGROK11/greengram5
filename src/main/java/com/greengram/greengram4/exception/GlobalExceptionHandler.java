@@ -11,6 +11,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @RestControllerAdvice // advice는 aop용어, aop는 중간에 슬롯처럼 끼워서 사용하는 클래스(보통 로그, 트랜잭션, 예외처리할때 쓰임)
 //필터는 튕겨낼때(로그인처리), 인터셉터는 원래는 spring 외부에서 작용 boot버전 부터는 내장이라 필터랑 비슷
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
+    //서버는 기본적으로 예외로 던지면 예외 처리를 해주지만 우리가 예외번호를 지정해주고 싶을때 만들어서 보냄
 
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<Object> handleIllegalArgumentException(IllegalArgumentException e){
@@ -25,7 +26,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return handleExceptionInternal(CommonErrorCode.INVALID_SERVER_ERROR);
     }
 
-
+    //우리가 작업하다가 특정예외를 터트리고 싶어 RestApiException을 만듦
     @ExceptionHandler(RestApiException.class)
     public ResponseEntity<Object> handleRestApiException(RestApiException e){
         log.warn("handleRestApiException",e);

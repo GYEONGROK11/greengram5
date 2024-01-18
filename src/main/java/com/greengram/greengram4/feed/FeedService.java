@@ -3,6 +3,8 @@ package com.greengram.greengram4.feed;
 import com.greengram.greengram4.common.Const;
 import com.greengram.greengram4.common.MyFileUtils;
 import com.greengram.greengram4.common.ResVo;
+import com.greengram.greengram4.exception.FeedErrorCode;
+import com.greengram.greengram4.exception.RestApiException;
 import com.greengram.greengram4.feed.model.*;
 import com.greengram.greengram4.security.AuthenticationFacade;
 import lombok.RequiredArgsConstructor;
@@ -26,6 +28,10 @@ public class FeedService {
 
 
     public FeedPicsInsDto postFeed(FeedInsDto dto) {
+        if(dto.getPics() == null){
+            throw new RestApiException(FeedErrorCode.PICS_MORE_THEN_ONE);
+        }
+
         dto.setIuser(authenticationFacade.getLoginUserPk());
         log.info("{}",dto);
         int feedAffectedRows = mapper.insFeed(dto);
@@ -81,7 +87,10 @@ public class FeedService {
         if (ifeed == null) {
             return new ResVo(Const.FAIL);
         }
-        picsMapper.feedDelPics(dto);
+        int picsAffectedRow = picsMapper.feedDelPics(dto);
+        if(picsAffectedRow == 0){
+            return new ResVo(Const.FAIL);
+        }
         favMapper.feedDelFav(dto);
         commentMapper.feedDelComment(dto);
         mapper.feedDel(dto);
@@ -98,6 +107,11 @@ public class FeedService {
     }
 
     public ResVo postComment(FeedCommentInsDto dto) {
+        //ifeed == 0 or comment == null or comment ==""
+//        if(dto.getIfeed() == 0 || dto.getComment().isBlank()){
+//            throw new RestApiException(FeedErrorCode.IMPOSSIBLE_REG_COMMENT);
+//        }
+        dto.setIuser(authenticationFacade.getLoginUserPk());
         int affectedRow = commentMapper.insFeedComment(dto);
         return new ResVo(dto.getIfeedComment());
     }

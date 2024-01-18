@@ -9,7 +9,9 @@ import org.springframework.http.HttpStatus;
 @RequiredArgsConstructor
 public enum AuthErrorCode implements ErrorCode {  //enum : Const를 대체해줌
 
-    VALID_PASSWORD(HttpStatus.BAD_REQUEST
+    NOT_EXIST_USER_ID(HttpStatus.NOT_FOUND
+            , "아이디가 존재하지 않습니다"),
+    VALID_PASSWORD(HttpStatus.NOT_FOUND
             , "비밀번호를 확인해 주세요"),
     NEED_SIGNIN(HttpStatus.UNAUTHORIZED
             , "로그인이 필요합니다"),
