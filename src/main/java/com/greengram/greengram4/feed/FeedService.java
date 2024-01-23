@@ -31,7 +31,6 @@ public class FeedService {
         if(dto.getPics() == null){
             throw new RestApiException(FeedErrorCode.PICS_MORE_THEN_ONE);
         }
-
         dto.setIuser(authenticationFacade.getLoginUserPk());
         log.info("{}",dto);
         int feedAffectedRows = mapper.insFeed(dto);
@@ -41,7 +40,6 @@ public class FeedService {
         for (MultipartFile file: dto.getPics()) {
             String saveFileNm = myFileUtils.transferTo(file, target);
             picsDto.getPics().add(saveFileNm);
-
         }
         picsMapper.insFeedPic(picsDto);
         log.info("{}",feedAffectedRows);

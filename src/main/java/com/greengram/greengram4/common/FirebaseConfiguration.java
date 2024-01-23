@@ -17,7 +17,7 @@ public class FirebaseConfiguration {
     @Value("${fcm.certification}")
     private String googleApplicationCredentials;
 
-    @PostConstruct
+    @PostConstruct //생성자 다음 딱 한번 호출 - (di 이후, 한번만 호출) 시 사용
     public void init() {
         try {
             InputStream serviceAccount =

@@ -14,12 +14,12 @@ public class FeedCommentInsDto {
     @JsonIgnore
     private int iuser;
 
-    @Min(1) //최소값 1
+    @Min(value = 1, message = "ifeed 값은 1 이상입니다") //최소값 1
     private int ifeed;
 
 
-    @NotEmpty //null이거나 비어있으면 안됨
-    @Size(min = 2) //2글자 이상
+    @NotEmpty(message = "댓글 내용을 입력해 주세요") //null이거나 비어있으면 안됨
+    @Size(min = 2,message = "댓글 내용은 2글자 이상이어야 합니다") //2글자 이상
     private String comment;
 
 }

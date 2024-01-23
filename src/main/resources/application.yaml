@@ -35,3 +35,37 @@ server:
 
 fcm:
   certification: serviceAccountKey.json
+
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: "prod1"
+  datasource:
+    url: jdbc:mariadb://192.168.0.144:5224/preschool
+    username: even_last_4
+    password: keystone
+
+file:
+  dir: /home/download
+
+server:
+  port: 8081
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: "prod2"
+  datasource:
+    url: jdbc:mariadb://192.168.0.144:5224/preschool
+    password: keystone
+
+file:
+  dir: /home/download
+
+server:
+  port: 8082

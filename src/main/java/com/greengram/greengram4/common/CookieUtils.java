@@ -5,7 +5,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Component;
 
-@Component
+@Component //빈등록 - 객체화를 한것 new cookieutils를 스프링 컨테이너가 해주고 주소값을 가지고 있음
 public class CookieUtils {
     public Cookie getCookie(HttpServletRequest request, String name) { //쿠키 get
         Cookie[] cookies = request.getCookies();

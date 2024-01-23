@@ -1,6 +1,7 @@
 package com.greengram.greengram4.security;
 
-import lombok.*;
+import lombok.Builder;
+import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
