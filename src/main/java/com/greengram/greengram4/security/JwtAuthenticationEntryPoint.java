@@ -9,6 +9,7 @@ import org.springframework.security.web.AuthenticationEntryPoint;
 import java.io.IOException;
 
 //잘못된 토큰, 만료된 토큰, 지원하지 않는 토큰 > 응답
+//빈등록이 안되었음 - 어딘가에서 객체화함(시큐리티 컨피규레이션에서 했음)
 public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
     @Override

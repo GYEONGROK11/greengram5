@@ -15,13 +15,13 @@ import java.io.FileInputStream;
 
 import static org.junit.jupiter.api.Assertions.*;
 @Slf4j
-@ExtendWith(SpringExtension.class)
+@ExtendWith(SpringExtension.class) //스프링컨테이너 테스트할때 필요 - 빈등록 된애를 객체화
 @Import({MyFileUtils.class})
 @TestPropertySource(properties = {
         "file.dir=D:/home/download",
 })
 public class MyFileUtilsTest {
-    @Autowired
+    @Autowired //test 시는 생성자로 di가 안됨 그래서 오토와이드
     private MyFileUtils myFileUtils;
 
     @Test

@@ -19,7 +19,9 @@ import org.springframework.util.MultiValueMap;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -36,7 +38,7 @@ class FeedControllerTest {
     @Autowired
     private ObjectMapper mapper; //객체를 json형태로 바꿔줄때 사용, 반대도 사용
     @MockBean //아무것도 값을 넣지않고 리턴하면 리턴해주는 타입의 디폴드값을 리턴함
-    private FeedService service;
+    private FeedService service; //컨트롤러를 객체화(위의 webmvctest어노테이션)하려면 서비스가 객체화되야 되서 목빈 사용
 
 
 
@@ -87,7 +89,7 @@ class FeedControllerTest {
         list.add(vo);
         list.add(vo1);
 
-        when(service.feedSel(any())).thenReturn(list);
+        given(service.feedSel(any())).willReturn(list);
 
         mvc.perform(
                 MockMvcRequestBuilders
@@ -96,7 +98,6 @@ class FeedControllerTest {
         ).andDo(print())
          .andExpect(content().string(mapper.writeValueAsString(list)));
 
-
         verify(service).feedSel(any());
     }
 
@@ -104,9 +105,7 @@ class FeedControllerTest {
     void delFeed() throws Exception {
         ResVo result = new ResVo(5);
 
-
-
-        when(service.delFeed(any())).thenReturn(result);
+        given(service.delFeed(any())).willReturn(result);
 
         mvc.perform(
                 MockMvcRequestBuilders

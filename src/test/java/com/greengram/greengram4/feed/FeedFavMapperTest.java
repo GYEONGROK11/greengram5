@@ -13,6 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @MybatisTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
+//test때는 원래 h2라는 경량 데이터베이스를 사용하지만 기존에 쓰는 db를 사용하겠다
 class FeedFavMapperTest {
 
     @Autowired //di해줌  di : bin등록된 주소값 달라고 하는 것

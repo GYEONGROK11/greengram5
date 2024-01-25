@@ -108,6 +108,11 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
                 .getFieldErrors()
                 .stream()
                 .map(ErrorResponse.ValidationError::of)
+                //.map(item -> ErrorResponse.ValidationError.of(item))
+                //.map(item -> { return ErrorResponse.ValidationError.of(item); })
+                //중괄호 생략가능할때 - 1줄일때, 리턴 메소드 였다면 리턴도 생략해줌
+                //map은 같은 사이즈의 리스트를 리턴해줌
+                
                 .collect(Collectors.toList());
 
         return ErrorResponse.builder()

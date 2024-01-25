@@ -8,7 +8,8 @@ import org.springframework.http.HttpStatus;
 @Getter
 @RequiredArgsConstructor
 public enum AuthErrorCode implements ErrorCode {  //enum : Const를 대체해줌
-
+    //400대 에러 : 클라이언트 오류
+    //500대 에러 : 서버 오류
     NOT_EXIST_USER_ID(HttpStatus.NOT_FOUND
             , "아이디가 존재하지 않습니다"),
     VALID_PASSWORD(HttpStatus.NOT_FOUND

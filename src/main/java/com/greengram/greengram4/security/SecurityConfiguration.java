@@ -16,7 +16,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfiguration {
 
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
-    @Bean
+    @Bean //기존 시큐리티 필터 대신 이걸 사용함
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception{
 
         return httpSecurity.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
@@ -51,10 +51,12 @@ public class SecurityConfiguration {
                         ).permitAll()
                         .anyRequest().authenticated()
                 )
-                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class) //이거먼저 거친다
+                //add는 기존거 놔두고 추가하겠다 +개념 before 이니까 UsernamePasswordAuthenticationFilter.class 전에 필터 끼움
+                //set은 기존필터 날리고 나의 커스텀만 쓰겠다
                 .exceptionHandling(except -> {
-                    except.authenticationEntryPoint(new JwtAuthenticationEntryPoint())
-                            .accessDeniedHandler(new JwtAccessDeniedHandler());
+                    except.authenticationEntryPoint(new JwtAuthenticationEntryPoint()) //만료된 토큰 값
+                            .accessDeniedHandler(new JwtAccessDeniedHandler()); // 권한없는사람의 접속
                 })
                         //.requestMatchers(HttpMethod.GET,"/api/**").permitAll() get방식이었을 경우만 허용하며 다른(delete, post, put) 방식을 허용하지 않겠다는 것을 의미 (편집됨)
                         //.requestMatchers("/api/user").hasAnyRole("user","admin")//권한 접근

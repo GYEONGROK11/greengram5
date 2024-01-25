@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
-@Mapper
+@Mapper //빈등록 + 다오 매퍼.xml을 객체화
 public interface DmMapper {
     //----------------------- t_dm
     int insDm(DmInsDto dto);

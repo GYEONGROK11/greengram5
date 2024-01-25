@@ -5,8 +5,11 @@ import com.greengram.greengram4.exception.FeedErrorCode;
 import com.greengram.greengram4.exception.RestApiException;
 import com.greengram.greengram4.feed.model.*;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -48,6 +51,9 @@ public class FeedController {
     }
 
     @GetMapping("/fav")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "좋아요 처리: result(1), 좋아요 취소: result(2)")
+    })
     public ResVo toggleFeedFav(FeedFavDto dto){
         return service.toggleFeedFav(dto);
     }

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Slf4j
-@RestController
+@RestController//목표는 json
 @RequiredArgsConstructor
 @RequestMapping("/api/dm")
 @Tag(name = "디엠 API",description = "디엠 관련 처리")

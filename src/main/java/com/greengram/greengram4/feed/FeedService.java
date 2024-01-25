@@ -22,7 +22,7 @@ public class FeedService {
     private final FeedPicsMapper picsMapper;
     private final FeedFavMapper favMapper;
     private final FeedCommentMapper commentMapper;
-    private final AuthenticationFacade authenticationFacade;
+    private final AuthenticationFacade authenticationFacade; //로그인과 관련
     private final MyFileUtils myFileUtils;
 
 
