@@ -10,6 +10,7 @@ import com.greengram.greengram4.security.AuthenticationFacade;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -26,7 +27,7 @@ public class FeedService {
     private final MyFileUtils myFileUtils;
 
 
-
+    @Transactional //(모든작업이 한작업이됨 지금은 매퍼가 2개있는데 둘다 성공해야 커밋됨)
     public FeedPicsInsDto postFeed(FeedInsDto dto) {
         if(dto.getPics() == null){
             throw new RestApiException(FeedErrorCode.PICS_MORE_THEN_ONE);
