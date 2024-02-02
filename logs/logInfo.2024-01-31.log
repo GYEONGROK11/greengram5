@@ -1,0 +1,215 @@
+[2024-01-31 12:10:03 [32mINFO [0;39m background-preinit] [org.hibernate.validator.internal.util.Version] [36mHV000001: Hibernate Validator 8.0.1.Final[0;39m
+[2024-01-31 12:10:03 [32mINFO [0;39m restartedMain] [com.greengram.greengram4.Greengram4Application] [36mStarting Greengram4Application using Java 17.0.8.1 with PID 6688 (D:\Student\Java2023\greengram4\build\classes\java\main started by Administrator in D:\Student\Java2023\greengram4)[0;39m
+[2024-01-31 12:10:03 [32mINFO [0;39m restartedMain] [com.greengram.greengram4.Greengram4Application] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m
+[2024-01-31 12:10:03 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable[0;39m
+[2024-01-31 12:10:03 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'[0;39m
+[2024-01-31 12:10:04 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m
+[2024-01-31 12:10:04 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m
+[2024-01-31 12:10:04 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m
+[2024-01-31 12:10:04 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.17][0;39m
+[2024-01-31 12:10:04 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m
+[2024-01-31 12:10:04 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 1121 ms[0;39m
+[2024-01-31 12:10:04 [32mINFO [0;39m restartedMain] [com.greengram.greengram4.security.JwtTokenProvider] [36msecret:DaeguGreenArtAcadenyClass502RoomForJavaSpringBootFighting[0;39m
+[2024-01-31 12:10:04 [32mINFO [0;39m restartedMain] [com.greengram.greengram4.common.FirebaseConfiguration] [36mFirebaseApp Initialization Complete !!![0;39m
+[2024-01-31 12:10:04 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: 8fb46293-58a9-4bf4-b2dc-c96bf980143e
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m
+[2024-01-31 12:10:04 [32mINFO [0;39m restartedMain] [org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping] [36mAdding welcome page: class path resource [static/index.html][0;39m
+[2024-01-31 12:10:04 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@62abbc7a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@152f29f7, org.springframework.security.web.context.SecurityContextHolderFilter@246c6fb4, org.springframework.security.web.header.HeaderWriterFilter@2e1defb3, org.springframework.web.filter.CorsFilter@7fd83c40, org.springframework.security.web.authentication.logout.LogoutFilter@61277910, com.greengram.greengram4.security.JwtAuthenticationFilter@55b96316, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7dbc6e60, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6c13f3a5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@98f29c2, org.springframework.security.web.session.SessionManagementFilter@1973092e, org.springframework.security.web.access.ExceptionTranslationFilter@59824dc2, org.springframework.security.web.access.intercept.AuthorizationFilter@4026fab2][0;39m
+[2024-01-31 12:10:05 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m
+[2024-01-31 12:10:05 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m
+[2024-01-31 12:10:05 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m
+[2024-01-31 12:10:05 [32mINFO [0;39m restartedMain] [com.greengram.greengram4.Greengram4Application] [36mStarted Greengram4Application in 2.358 seconds (process running for 2.78)[0;39m
+[2024-01-31 12:10:07 [32mINFO [0;39m http-nio-8080-exec-1] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring DispatcherServlet 'dispatcherServlet'[0;39m
+[2024-01-31 12:10:07 [32mINFO [0;39m http-nio-8080-exec-1] [org.springframework.web.servlet.DispatcherServlet] [36mInitializing Servlet 'dispatcherServlet'[0;39m
+[2024-01-31 12:10:07 [32mINFO [0;39m http-nio-8080-exec-1] [org.springframework.web.servlet.DispatcherServlet] [36mCompleted initialization in 1 ms[0;39m
+[2024-01-31 12:10:07 [32mINFO [0;39m http-nio-8080-exec-1] [com.greengram.greengram4.security.JwtAuthenticationFilter] [36mJwtAuthentication - token : null[0;39m
+[2024-01-31 12:10:07 [32mINFO [0;39m http-nio-8080-exec-3] [com.greengram.greengram4.security.JwtAuthenticationFilter] [36mJwtAuthentication - token : null[0;39m
+[2024-01-31 12:10:07 [32mINFO [0;39m http-nio-8080-exec-2] [com.greengram.greengram4.security.JwtAuthenticationFilter] [36mJwtAuthentication - token : null[0;39m
+[2024-01-31 12:10:07 [32mINFO [0;39m http-nio-8080-exec-4] [com.greengram.greengram4.security.JwtAuthenticationFilter] [36mJwtAuthentication - token : null[0;39m
+[2024-01-31 12:10:07 [32mINFO [0;39m http-nio-8080-exec-5] [com.greengram.greengram4.security.JwtAuthenticationFilter] [36mJwtAuthentication - token : null[0;39m
+[2024-01-31 12:10:07 [32mINFO [0;39m http-nio-8080-exec-5] [org.springdoc.api.AbstractOpenApiResource] [36mInit duration for springdoc-openapi is: 192 ms[0;39m
+[2024-01-31 12:12:51 [32mINFO [0;39m File Watcher] [org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] [36mRestarting due to 31 class path changes (0 additions, 0 deletions, 31 modifications)[0;39m
+[2024-01-31 12:12:51 [32mINFO [0;39m Thread-5] [org.apache.coyote.http11.Http11NioProtocol] [36mStopping ProtocolHandler ["http-nio-8080"][0;39m
+[2024-01-31 12:12:51 [32mINFO [0;39m restartedMain] [com.greengram.greengram4.Greengram4Application] [36mStarting Greengram4Application using Java 17.0.8.1 with PID 6688 (D:\Student\Java2023\greengram4\build\classes\java\main started by Administrator in D:\Student\Java2023\greengram4)[0;39m
+[2024-01-31 12:12:51 [32mINFO [0;39m restartedMain] [com.greengram.greengram4.Greengram4Application] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m
+[2024-01-31 12:12:51 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m
+[2024-01-31 12:12:51 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m
+[2024-01-31 12:12:51 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m
+[2024-01-31 12:12:51 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.17][0;39m
+[2024-01-31 12:12:51 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m
+[2024-01-31 12:12:51 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 267 ms[0;39m
+[2024-01-31 12:12:51 [32mINFO [0;39m restartedMain] [com.greengram.greengram4.security.JwtTokenProvider] [36msecret:DaeguGreenArtAcadenyClass502RoomForJavaSpringBootFighting[0;39m
+[2024-01-31 12:12:51 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: 6e6cf321-0eb2-45f2-b8ac-e7352956cec8
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m
+[2024-01-31 12:12:51 [32mINFO [0;39m restartedMain] [org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping] [36mAdding welcome page: class path resource [static/index.html][0;39m
+[2024-01-31 12:12:51 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@a5896d3, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@19b6de64, org.springframework.security.web.context.SecurityContextHolderFilter@32b44054, org.springframework.security.web.header.HeaderWriterFilter@1e8b1bfd, org.springframework.web.filter.CorsFilter@50173671, org.springframework.security.web.authentication.logout.LogoutFilter@68df6458, com.greengram.greengram4.security.JwtAuthenticationFilter@1d06f37a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@596a193a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1f78a519, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@123d267b, org.springframework.security.web.session.SessionManagementFilter@2a09ade8, org.springframework.security.web.access.ExceptionTranslationFilter@54e7fa52, org.springframework.security.web.access.intercept.AuthorizationFilter@3bff22fa][0;39m
+[2024-01-31 12:12:51 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m
+[2024-01-31 12:12:51 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m
+[2024-01-31 12:12:51 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m
+[2024-01-31 12:12:51 [32mINFO [0;39m restartedMain] [com.greengram.greengram4.Greengram4Application] [36mStarted Greengram4Application in 0.469 seconds (process running for 169.612)[0;39m
+[2024-01-31 12:12:51 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener] [36mCondition evaluation unchanged[0;39m
+[2024-01-31 12:13:11 [32mINFO [0;39m File Watcher] [org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] [36mRestarting due to 31 class path changes (0 additions, 0 deletions, 31 modifications)[0;39m
+[2024-01-31 12:13:11 [32mINFO [0;39m Thread-7] [org.apache.coyote.http11.Http11NioProtocol] [36mStopping ProtocolHandler ["http-nio-8080"][0;39m
+[2024-01-31 12:13:11 [32mINFO [0;39m restartedMain] [com.greengram.greengram4.Greengram4Application] [36mStarting Greengram4Application using Java 17.0.8.1 with PID 6688 (D:\Student\Java2023\greengram4\build\classes\java\main started by Administrator in D:\Student\Java2023\greengram4)[0;39m
+[2024-01-31 12:13:11 [32mINFO [0;39m restartedMain] [com.greengram.greengram4.Greengram4Application] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m
+[2024-01-31 12:13:12 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m
+[2024-01-31 12:13:12 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m
+[2024-01-31 12:13:12 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m
+[2024-01-31 12:13:12 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.17][0;39m
+[2024-01-31 12:13:12 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m
+[2024-01-31 12:13:12 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 249 ms[0;39m
+[2024-01-31 12:13:12 [32mINFO [0;39m restartedMain] [com.greengram.greengram4.security.JwtTokenProvider] [36msecret:DaeguGreenArtAcadenyClass502RoomForJavaSpringBootFighting[0;39m
+[2024-01-31 12:13:12 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: 9a0962c0-444b-448f-8725-603491961c9a
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m
+[2024-01-31 12:13:12 [32mINFO [0;39m restartedMain] [org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping] [36mAdding welcome page: class path resource [static/index.html][0;39m
+[2024-01-31 12:13:12 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7648418a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5ac50ed4, org.springframework.security.web.context.SecurityContextHolderFilter@18a43e, org.springframework.security.web.header.HeaderWriterFilter@16c3fcf5, org.springframework.web.filter.CorsFilter@105a9a7f, org.springframework.security.web.authentication.logout.LogoutFilter@1e6648e7, com.greengram.greengram4.security.JwtAuthenticationFilter@3c5fdbdc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@36ee71d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@a4397d1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@139bcfce, org.springframework.security.web.session.SessionManagementFilter@54a9857, org.springframework.security.web.access.ExceptionTranslationFilter@f419686, org.springframework.security.web.access.intercept.AuthorizationFilter@7caffdbf][0;39m
+[2024-01-31 12:13:12 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m
+[2024-01-31 12:13:12 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m
+[2024-01-31 12:13:12 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m
+[2024-01-31 12:13:12 [32mINFO [0;39m restartedMain] [com.greengram.greengram4.Greengram4Application] [36mStarted Greengram4Application in 0.45 seconds (process running for 189.962)[0;39m
+[2024-01-31 12:13:12 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener] [36mCondition evaluation unchanged[0;39m
+[2024-01-31 12:13:36 [32mINFO [0;39m File Watcher] [org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] [36mRestarting due to 31 class path changes (0 additions, 0 deletions, 31 modifications)[0;39m
+[2024-01-31 12:13:36 [32mINFO [0;39m Thread-11] [org.apache.coyote.http11.Http11NioProtocol] [36mStopping ProtocolHandler ["http-nio-8080"][0;39m
+[2024-01-31 12:13:36 [32mINFO [0;39m restartedMain] [com.greengram.greengram4.Greengram4Application] [36mStarting Greengram4Application using Java 17.0.8.1 with PID 6688 (D:\Student\Java2023\greengram4\build\classes\java\main started by Administrator in D:\Student\Java2023\greengram4)[0;39m
+[2024-01-31 12:13:36 [32mINFO [0;39m restartedMain] [com.greengram.greengram4.Greengram4Application] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m
+[2024-01-31 12:13:36 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m
+[2024-01-31 12:13:36 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m
+[2024-01-31 12:13:36 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m
+[2024-01-31 12:13:36 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.17][0;39m
+[2024-01-31 12:13:36 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m
+[2024-01-31 12:13:36 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 248 ms[0;39m
+[2024-01-31 12:13:36 [32mINFO [0;39m restartedMain] [com.greengram.greengram4.security.JwtTokenProvider] [36msecret:DaeguGreenArtAcadenyClass502RoomForJavaSpringBootFighting[0;39m
+[2024-01-31 12:13:36 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: 6816c801-3ed3-4a43-8d20-287d4492614b
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m
+[2024-01-31 12:13:36 [32mINFO [0;39m restartedMain] [org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping] [36mAdding welcome page: class path resource [static/index.html][0;39m
+[2024-01-31 12:13:36 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@662232e3, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4001725, org.springframework.security.web.context.SecurityContextHolderFilter@5f1430cd, org.springframework.security.web.header.HeaderWriterFilter@713a7b84, org.springframework.web.filter.CorsFilter@87129cf, org.springframework.security.web.authentication.logout.LogoutFilter@1bcf21fb, com.greengram.greengram4.security.JwtAuthenticationFilter@31c9f976, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@27f215ce, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@536acef, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@38588a6c, org.springframework.security.web.session.SessionManagementFilter@4644d62d, org.springframework.security.web.access.ExceptionTranslationFilter@195c3851, org.springframework.security.web.access.intercept.AuthorizationFilter@1cc58b96][0;39m
+[2024-01-31 12:13:36 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m
+[2024-01-31 12:13:36 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m
+[2024-01-31 12:13:36 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m
+[2024-01-31 12:13:36 [32mINFO [0;39m restartedMain] [com.greengram.greengram4.Greengram4Application] [36mStarted Greengram4Application in 0.444 seconds (process running for 214.403)[0;39m
+[2024-01-31 12:13:36 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener] [36mCondition evaluation unchanged[0;39m
+[2024-01-31 12:14:32 [32mINFO [0;39m http-nio-8080-exec-1] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring DispatcherServlet 'dispatcherServlet'[0;39m
+[2024-01-31 12:14:32 [32mINFO [0;39m http-nio-8080-exec-1] [org.springframework.web.servlet.DispatcherServlet] [36mInitializing Servlet 'dispatcherServlet'[0;39m
+[2024-01-31 12:14:32 [32mINFO [0;39m http-nio-8080-exec-1] [org.springframework.web.servlet.DispatcherServlet] [36mCompleted initialization in 0 ms[0;39m
+[2024-01-31 12:14:32 [32mINFO [0;39m http-nio-8080-exec-1] [com.greengram.greengram4.security.JwtAuthenticationFilter] [36mJwtAuthentication - token : null[0;39m
+[2024-01-31 12:14:32 [32mINFO [0;39m http-nio-8080-exec-1] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Starting...[0;39m
+[2024-01-31 12:14:32 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection opened. {executed in 42ms} [0;39m
+[2024-01-31 12:14:32 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection.new Connection returned [0;39m
+[2024-01-31 12:14:32 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection.getNetworkTimeout() returned 0[0;39m
+[2024-01-31 12:14:32 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection.isReadOnly() returned false[0;39m
+[2024-01-31 12:14:32 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection.getAutoCommit() returned true[0;39m
+[2024-01-31 12:14:32 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection.isValid(1) returned true[0;39m
+[2024-01-31 12:14:32 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection.getTransactionIsolation() returned 4[0;39m
+[2024-01-31 12:14:32 [32mINFO [0;39m http-nio-8080-exec-1] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@6c33d970[0;39m
+[2024-01-31 12:14:32 [32mINFO [0;39m http-nio-8080-exec-1] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Start completed.[0;39m
+[2024-01-31 12:14:32 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection.getAutoCommit() returned true[0;39m
+[2024-01-31 12:14:32 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.new PreparedStatement returned [0;39m
+[2024-01-31 12:14:32 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection.prepareStatement(SELECT iuser,uid, upw, nm, pic, created_at as createdAt, firebase_token as firebaseToken
+        FROM t_user
+         WHERE uid = ?) returned net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy@3c569b10[0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.setString(1, "rudfhr1") returned [0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. SELECT iuser,uid, upw, nm, pic, created_at as createdAt, firebase_token as firebaseToken FROM 
+t_user WHERE uid = 'rudfhr1'  {executed in 2 ms}[0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.execute() returned true[0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.new ResultSet returned [0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.getResultSet() returned net.sf.log4jdbc.sql.jdbcapi.ResultSetSpy@4583ffc1[0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getMetaData() returned org.mariadb.jdbc.client.result.ResultSetMetaData@1faf4fcc[0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getType() returned 1003[0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.next() returned true[0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getInt(iuser) returned 1[0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(uid) returned rudfhr1[0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(upw) returned $2a$10$5qRZBjfXzGUfDVBXlqQcru.Q4.9iXCk8Jp2eRHl76cxNqQuJTx8q.[0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(nm) returned 짱구[0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(pic) returned 9ca00a18-653f-4e45-a417-4b5b4773b192.gif[0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(createdAt) returned 2023-11-29 12:59:35[0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(firebaseToken) returned c5sTC4_pRyEV0JtTgYW9Je:APA91bEw_FBA41l1Ltif7An_3R8wYcUohXYW4WgqfcGp0c-PROFCvdgElB2DM1wKdFpShQUWO90-LeRmVATJyzPUAjNs8fR0QeYyTT5TT0lpznbyOnMbaI12m4N77EAolYOrBfr26Ref[0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m
+|------|--------|-------------------------------------------------------------|---|-----------------------------------------|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|iuser |uid     |upw                                                          |nm |pic                                      |created_at          |firebase_token                                                                                                                                                      |
+|------|--------|-------------------------------------------------------------|---|-----------------------------------------|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|1     |rudfhr1 |$2a$10$5qRZBjfXzGUfDVBXlqQcru.Q4.9iXCk8Jp2eRHl76cxNqQuJTx8q. |짱구 |9ca00a18-653f-4e45-a417-4b5b4773b192.gif |2023-11-29 12:59:35 |c5sTC4_pRyEV0JtTgYW9Je:APA91bEw_FBA41l1Ltif7An_3R8wYcUohXYW4WgqfcGp0c-PROFCvdgElB2DM1wKdFpShQUWO90-LeRmVATJyzPUAjNs8fR0QeYyTT5TT0lpznbyOnMbaI12m4N77EAolYOrBfr26Ref |
+|------|--------|-------------------------------------------------------------|---|-----------------------------------------|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+[0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.next() returned false[0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.close() returned void[0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection.getMetaData() returned org.mariadb.jdbc.DatabaseMetaData@1a38ed3[0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.getMoreResults() returned false[0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.getUpdateCount() returned -1[0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.close() returned [0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection.clearWarnings() returned [0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m2. Connection opened. {executed in 1ms} [0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m2. Connection.new Connection returned [0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m2. Connection.isReadOnly() returned false[0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m2. Connection.getAutoCommit() returned true[0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m3. Connection opened. {executed in 1ms} [0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m3. Connection.new Connection returned [0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m3. Connection.isReadOnly() returned false[0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m3. Connection.getAutoCommit() returned true[0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m4. Connection opened. {executed in 1ms} [0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m4. Connection.new Connection returned [0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m4. Connection.isReadOnly() returned false[0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m4. Connection.getAutoCommit() returned true[0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m5. Connection opened. {executed in 1ms} [0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m5. Connection.new Connection returned [0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m5. Connection.isReadOnly() returned false[0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m5. Connection.getAutoCommit() returned true[0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m6. Connection opened. {executed in 1ms} [0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m6. Connection.new Connection returned [0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m6. Connection.isReadOnly() returned false[0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m6. Connection.getAutoCommit() returned true[0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m7. Connection opened. {executed in 1ms} [0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m7. Connection.new Connection returned [0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m7. Connection.isReadOnly() returned false[0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m7. Connection.getAutoCommit() returned true[0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m8. Connection opened. {executed in 1ms} [0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m8. Connection.new Connection returned [0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m8. Connection.isReadOnly() returned false[0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m8. Connection.getAutoCommit() returned true[0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m9. Connection opened. {executed in 1ms} [0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m9. Connection.new Connection returned [0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m9. Connection.isReadOnly() returned false[0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m9. Connection.getAutoCommit() returned true[0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m10. Connection opened. {executed in 6ms} [0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m10. Connection.new Connection returned [0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m10. Connection.isReadOnly() returned false[0;39m
+[2024-01-31 12:14:33 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m10. Connection.getAutoCommit() returned true[0;39m
+[2024-01-31 12:41:58 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown initiated...[0;39m
+[2024-01-31 12:41:58 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m1. Connection closed. {executed in 1ms} [0;39m
+[2024-01-31 12:41:58 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m1. Connection.close() returned [0;39m
+[2024-01-31 12:41:58 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m2. Connection closed. {executed in 0ms} [0;39m
+[2024-01-31 12:41:58 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m2. Connection.close() returned [0;39m
+[2024-01-31 12:41:58 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m3. Connection closed. {executed in 1ms} [0;39m
+[2024-01-31 12:41:58 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m3. Connection.close() returned [0;39m
+[2024-01-31 12:41:58 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m4. Connection closed. {executed in 0ms} [0;39m
+[2024-01-31 12:41:58 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m4. Connection.close() returned [0;39m
+[2024-01-31 12:41:58 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m5. Connection closed. {executed in 0ms} [0;39m
+[2024-01-31 12:41:58 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m5. Connection.close() returned [0;39m
+[2024-01-31 12:41:58 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m6. Connection closed. {executed in 0ms} [0;39m
+[2024-01-31 12:41:58 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m6. Connection.close() returned [0;39m
+[2024-01-31 12:41:58 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m7. Connection closed. {executed in 1ms} [0;39m
+[2024-01-31 12:41:58 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m7. Connection.close() returned [0;39m
+[2024-01-31 12:41:58 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m8. Connection closed. {executed in 0ms} [0;39m
+[2024-01-31 12:41:58 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m8. Connection.close() returned [0;39m
+[2024-01-31 12:41:58 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m9. Connection closed. {executed in 0ms} [0;39m
+[2024-01-31 12:41:58 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m9. Connection.close() returned [0;39m
+[2024-01-31 12:41:58 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m10. Connection closed. {executed in 0ms} [0;39m
+[2024-01-31 12:41:58 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m10. Connection.close() returned [0;39m
+[2024-01-31 12:41:58 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown completed.[0;39m
