@@ -75,6 +75,10 @@ public class UserService {
         MyPrincipal myPrincipal = MyPrincipal.builder()
                 .iuser(entity.getIuser())
                 .build();
+
+        myPrincipal.getRoles().add(entity.getRole());
+
+
         String at = jwtTokenProvider.generateAccessToken(myPrincipal);
         String rt = jwtTokenProvider.generateRefreshToken(myPrincipal);
 

@@ -3,9 +3,11 @@ package com.greengram.greengram4.security;
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 @Data
 @Builder
@@ -15,7 +17,16 @@ public class MyUserDetails implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() { //호출후 값으로 권한 처리
-        return null;
+        if (myPrincipal == null) {
+            return null;
+        }
+        return  this.myPrincipal.getRoles().stream()
+                //map은 형태를 변환하기 위해 같은 사이즈의 배열을 만든다
+                //.map(SimpleGrantedAuthority::new)//가공이 없을때는 사용가능 지금은 ROLE_ADMIN으로 가공할 예정
+                //.map(role -> { return new SimpleGrantedAuthority(role);})
+                .map(role -> new SimpleGrantedAuthority("ROLE_" + role))
+                .collect(Collectors.toList());
+
     }
 
     @Override

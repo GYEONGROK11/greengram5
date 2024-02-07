@@ -13,7 +13,9 @@
     </insert>
 
     <select id="selUser">
-        SELECT iuser,uid, upw, nm, pic, created_at as createdAt, firebase_token as firebaseToken
+        SELECT iuser,uid, upw, nm, pic, role
+        , created_at as createdAt, updated_at as updatedAt
+        , firebase_token as firebaseToken
         FROM t_user
         <where>
             <if test="uid != null and uid !='' ">

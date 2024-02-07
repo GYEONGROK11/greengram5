@@ -3,6 +3,7 @@ package com.greengram.greengram4.security;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -28,32 +29,21 @@ public class SecurityConfiguration {
                 .csrf(csrf -> csrf.disable())
                 //스프링이 기본제공해주는 보안기법 - 화면상에서 보안해줘서 필요없음
                 .authorizeHttpRequests(auth -> auth.requestMatchers(
-                        "/api/user/signin"
-                        ,"/api/user/signup"
-                        ,"/api/user/refresh-token"
-                        ,"/error"
-                        ,"/err"
-                        ,"/"
-                        ,"/signin"
-                        ,"/signup"
-                        ,"/feed"
-                        ,"/feed/**"
-                        ,"/fimg/**"
-                        ,"/pic/**"
-                        ,"/profile"
-                        ,"/profile/**"
-                        ,"/css/**"
-                        ,"/index.html"
-                        ,"/static/**"
-                        ,"/swagger.html"
-                        ,"/swagger-ui/**"
-                        ,"/v3/api-docs/**"
-                        ,"/api/open/**"
-                        ).permitAll()
-                        .anyRequest().authenticated()
+                        "/api/feed"
+                        ,"/api/feed/comment"
+                        ,"/api/dm"
+                        ,"/api/dm/msg"
+                        ).authenticated()
+                        .requestMatchers(HttpMethod.POST,"api/user/signout"
+                                                         ,"api/user/follow"
+                        ).authenticated()
+                        .requestMatchers(HttpMethod.GET,"api/user").authenticated()
+                        .requestMatchers(HttpMethod.PATCH,"api/user/pic").authenticated()
+                        .requestMatchers(HttpMethod.GET,"api/feed/fav").hasAnyRole("ADMIN")
+                        .anyRequest().permitAll()
                 )
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class) //이거먼저 거친다
-                //add는 기존거 놔두고 추가하겠다 +개념 before 이니까 UsernamePasswordAuthenticationFilter.class 전에 필터 끼움
+                //add는 기존거 놔두고 추가하겠다 (+개념) before니까 UsernamePasswordAuthenticationFilter.class 전에 필터 끼움
                 //set은 기존필터 날리고 나의 커스텀만 쓰겠다
                 .exceptionHandling(except -> {
                     except.authenticationEntryPoint(new JwtAuthenticationEntryPoint()) //만료된 토큰 값
@@ -61,7 +51,7 @@ public class SecurityConfiguration {
                 })
                         //.requestMatchers(HttpMethod.GET,"/api/**").permitAll() get방식이었을 경우만 허용하며 다른(delete, post, put) 방식을 허용하지 않겠다는 것을 의미 (편집됨)
                         //.requestMatchers("/api/user").hasAnyRole("user","admin")//권한 접근
-                        //.anyRequest().hasRole("admin")) //그외 모든 것들 admin권한이 있어야 접근
+                        //.anyRequest().hasRole("ADMIN")) //그외 모든 것들 admin권한이 있어야 접근
                         //.anyRequest().authenticated()) //로그인권한
                 //permitall은 무사 통과시켜준다는 뜻 , matchers 매칭해줌
                 .build();
