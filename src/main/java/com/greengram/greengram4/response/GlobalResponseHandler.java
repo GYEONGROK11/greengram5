@@ -21,7 +21,11 @@ import java.util.Map;
 
 @Slf4j
 @RequiredArgsConstructor
-@RestControllerAdvice(basePackages = "com.greengram.greengram4") //스웨거에서 처리하는 것을 캐치하지않음
+//기존 컨트롤러에서 리턴하는 구조(형식)들이 다 다른데 큰 틀을 통일하고 싶어서 사용하였음
+//AOP로 해결 ADVICE
+//ApiResponse<T>로 통일함
+//통일 이유 : 에러와 통신성공 등 구조를 똑같이 만들려고
+//@RestControllerAdvice(basePackages = "com.greengram.greengram4") //스웨거에서 처리하는 것을 캐치하지않음
 public class GlobalResponseHandler implements ResponseBodyAdvice<Object> {
 
     private final ObjectMapper om;

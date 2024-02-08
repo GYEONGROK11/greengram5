@@ -16,6 +16,5 @@ public class OpenApiProperties {
         private String baseUrl;
         private String dataUrl;
         private String serviceKey;
-
     }
 }
