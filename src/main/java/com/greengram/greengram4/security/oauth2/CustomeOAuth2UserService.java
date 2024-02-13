@@ -1,6 +1,10 @@
-package com.greengram.greengram4.security.oauth2.userinfo;
+package com.greengram.greengram4.security.oauth2;
 
+import com.greengram.greengram4.security.MyPrincipal;
+import com.greengram.greengram4.security.MyUserDetails;
 import com.greengram.greengram4.security.oauth2.SocialProviderType;
+import com.greengram.greengram4.security.oauth2.userinfo.OAuth2UserInfo;
+import com.greengram.greengram4.security.oauth2.userinfo.OAuth2UserInfoFactory;
 import com.greengram.greengram4.user.UserMapper;
 import com.greengram.greengram4.user.model.UserEntity;
 import com.greengram.greengram4.user.model.UserSelDto;
@@ -54,7 +58,17 @@ public class CustomeOAuth2UserService extends DefaultOAuth2UserService {
             savedUser = signupUser(oAuth2UserInfo, socialProviderType);
         }
 
-        return null;
+        MyPrincipal myPrincipal = MyPrincipal.builder()
+                .iuser(savedUser.getIuser())
+                .build();
+
+        myPrincipal.getRoles().add(savedUser.getRole());
+
+        return MyUserDetails.builder()
+                .userEntity(savedUser)
+                .attributes(attrs)
+                .myPrincipal(myPrincipal)
+                .build();
     }
     private UserEntity signupUser(OAuth2UserInfo oAuth2UserInfo, SocialProviderType socialProviderType){
         UserSignupProcDto dto = UserSignupProcDto.builder()
@@ -69,7 +83,10 @@ public class CustomeOAuth2UserService extends DefaultOAuth2UserService {
 
         UserEntity entity = new UserEntity();
         entity.setIuser(dto.getIuser());
+        entity.setUid(dto.getUid());
         entity.setRole(dto.getRole());
+        entity.setNm(dto.getNm());
+        entity.setPic(dto.getPic());
         return entity;
     }
 

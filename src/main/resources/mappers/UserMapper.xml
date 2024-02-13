@@ -15,7 +15,7 @@
     </insert>
 
     <select id="selUser">
-        SELECT iuser,uid, upw, nm, pic, role
+        SELECT iuser,uid, upw, nm, pic, role, provider_type as providerType
         , created_at as createdAt, updated_at as updatedAt
         , firebase_token as firebaseToken
         FROM t_user

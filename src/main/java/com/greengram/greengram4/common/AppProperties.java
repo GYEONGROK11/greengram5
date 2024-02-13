@@ -4,11 +4,15 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @ConfigurationProperties(prefix = "app") //pre 접두사 yaml에 app끌어옴
 public class AppProperties {
 
     private final Jwt jwt = new Jwt();//innerclass를 사용하려면 밖의 class에서 객체화를 해야함
+    private final Oauth2 oauth2 = new Oauth2();//innerclass를 사용하려면 밖의 class에서 객체화를 해야함
 
     @Getter
     @Setter
@@ -25,6 +29,12 @@ public class AppProperties {
             this.refreshTokenExpiry = refreshTokenExpiry;
             this.refreshTokenCookieMaxAge = (int) refreshTokenExpiry / 1000;
         }
+
+    }
+
+    @Getter
+    public static final class Oauth2 {
+        private List<String> authorizedRedirectUris = new ArrayList();
 
     }
 }

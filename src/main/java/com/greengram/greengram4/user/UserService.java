@@ -20,6 +20,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.Optional;
+
 
 @Service
 @RequiredArgsConstructor
@@ -88,8 +90,8 @@ public class UserService {
         cookieUtils.deleteCookie(res,"rt");
         cookieUtils.setCookie(res,"rt",rt,rtCookieMaxAge);
 
-        HttpSession session = req.getSession(true);
-        session.setAttribute("loginUserPk",entity.getIuser());
+//        HttpSession session = req.getSession(true);
+//        session.setAttribute("loginUserPk",entity.getIuser());
 
 
         vo.setAccessToken(at);
@@ -113,16 +115,18 @@ public class UserService {
     }
 
     public UserSigninVo getRefreshToken(HttpServletRequest req){//at를 다시 만들어줌
-        Cookie cookie = cookieUtils.getCookie(req,"rt");
-        UserSigninVo vo = new UserSigninVo();
+        //Cookie cookie = cookieUtils.getCookie(req,"rt");
+        Optional<String> optRt = cookieUtils.getCookie(req,"rt").map(Cookie::getValue);
 
-        if(cookie == null){
+
+        UserSigninVo vo = new UserSigninVo();
+        if(optRt.isEmpty()){
             vo.setResult(Const.FAIL);
             vo.setAccessToken(null);
             return vo;
         }
 
-        String token = cookie.getValue();
+        String token = optRt.get();
 
         if(!jwtTokenProvider.isValidateToken(token)){
             vo.setResult(Const.FAIL);

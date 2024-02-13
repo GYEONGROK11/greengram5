@@ -1,5 +1,9 @@
 package com.greengram.greengram4.security;
 
+import com.greengram.greengram4.security.oauth2.CustomeOAuth2UserService;
+import com.greengram.greengram4.security.oauth2.OAuth2AuthenticationFailureHandler;
+import com.greengram.greengram4.security.oauth2.OAuth2AuthenticationRequestBasedOnCookieRepository;
+import com.greengram.greengram4.security.oauth2.OAuth2AuthenticationSuccessHandler;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,6 +21,11 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfiguration {
 
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
+    private final OAuth2AuthenticationFailureHandler oAuth2AuthenticationFailureHandler;
+    private final OAuth2AuthenticationRequestBasedOnCookieRepository oAuth2AuthenticationRequestBasedOnCookieRepository;
+    private final OAuth2AuthenticationSuccessHandler oAuth2AuthenticationSuccessHandler;
+    private final CustomeOAuth2UserService customeOAuth2UserService;
+
     @Bean //기존 시큐리티 필터 대신 이걸 사용함
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception{
 
@@ -54,6 +63,15 @@ public class SecurityConfiguration {
                         //.anyRequest().hasRole("ADMIN")) //그외 모든 것들 admin권한이 있어야 접근
                         //.anyRequest().authenticated()) //로그인권한
                 //permitall은 무사 통과시켜준다는 뜻 , matchers 매칭해줌
+                .oauth2Login(oauth2 -> oauth2.authorizationEndpoint(auth ->
+                                                      auth.baseUri("/oauth2/authorization")
+                                                              .authorizationRequestRepository(oAuth2AuthenticationRequestBasedOnCookieRepository)
+
+                        ).redirectionEndpoint(redirection -> redirection.baseUri("/*/oauth2/code/*"))
+                        .userInfoEndpoint(userInfo -> userInfo.userService(customeOAuth2UserService))
+                        .successHandler(oAuth2AuthenticationSuccessHandler)
+                        .failureHandler(oAuth2AuthenticationFailureHandler)
+                )
                 .build();
     }
 
