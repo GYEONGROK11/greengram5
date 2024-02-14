@@ -46,10 +46,9 @@ public class CookieUtils {
     public <T> T deserialize(Cookie cookie, Class<T> cls){
         return cls.cast(
                 SerializationUtils.deserialize(
-                        Base64.getDecoder().decode(cookie.getValue())
+                        //Base64.getDecoder().decode(cookie.getValue())
+                        Base64.getUrlDecoder().decode(cookie.getValue())
                 )
         );
-
     }
-
 }

@@ -36,14 +36,14 @@ spring:
       client:
         registration:
           google:
-            clientId: q
-            clientSecret: q
+            clientId: qaasd
+            clientSecret: qasd
             scope:
               - email
               - profile
           facebook:
-            clientId: q
-            clientSecret: q
+            clientId: qasd
+            clientSecret: qasd
             scope:
               - email
               - public_profile
