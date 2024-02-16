@@ -127,7 +127,7 @@ server:
       driver-class-name: org.mariadb.jdbc.Driver
     jpa:
       hibernate:
-        ddl-auto: update
+        ddl-auto: create
       show-sql: true
       properties:
         hibernate:
