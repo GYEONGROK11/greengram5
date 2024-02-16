@@ -133,3 +133,4 @@ server:
         hibernate:
           format_sql: true
       open-in-view: false
+      generate-ddl: true

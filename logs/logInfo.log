@@ -22065,3 +22065,341 @@ Caused by: java.sql.SQLException: (conn=386) Can't create table `greengram5_jpa`
 [2024-02-16 12:45:13 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m
 [2024-02-16 12:45:13 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m
 [2024-02-16 12:45:13 [32mINFO [0;39m restartedMain] [com.greengram.greengram4.Greengram4Application] [36mStarted Greengram4Application in 4.013 seconds (process running for 4.46)[0;39m
+[2024-02-16 13:09:16 [32mINFO [0;39m File Watcher] [org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] [36mRestarting due to 4 class path changes (0 additions, 4 deletions, 0 modifications)[0;39m
+[2024-02-16 13:09:16 [32mINFO [0;39m Thread-5] [org.apache.coyote.http11.Http11NioProtocol] [36mStopping ProtocolHandler ["http-nio-8080"][0;39m
+[2024-02-16 13:09:16 [32mINFO [0;39m Thread-5] [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] [36mClosing JPA EntityManagerFactory for persistence unit 'default'[0;39m
+[2024-02-16 13:09:16 [32mINFO [0;39m Thread-5] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown initiated...[0;39m
+[2024-02-16 13:09:16 [32mINFO [0;39m Thread-5] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown completed.[0;39m
+[2024-02-16 13:09:16 [32mINFO [0;39m restartedMain] [com.greengram.greengram4.Greengram4Application] [36mStarting Greengram4Application using Java 17.0.8.1 with PID 10780 (D:\Student\Java2023\greengram5\build\classes\java\main started by Administrator in D:\Student\Java2023\greengram5)[0;39m
+[2024-02-16 13:09:16 [32mINFO [0;39m restartedMain] [com.greengram.greengram4.Greengram4Application] [36mThe following 1 profile is active: "jpa"[0;39m
+[2024-02-16 13:09:16 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data JPA repositories in DEFAULT mode.[0;39m
+[2024-02-16 13:09:17 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 14 ms. Found 3 JPA repository interfaces.[0;39m
+[2024-02-16 13:09:17 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m
+[2024-02-16 13:09:17 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m
+[2024-02-16 13:09:17 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m
+[2024-02-16 13:09:17 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.17][0;39m
+[2024-02-16 13:09:17 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m
+[2024-02-16 13:09:17 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 369 ms[0;39m
+[2024-02-16 13:09:17 [32mINFO [0;39m restartedMain] [com.greengram.greengram4.security.JwtTokenProvider] [36msecret:DaeguGreenArtAcademyClass502RoomForJavaSpringBootFighting[0;39m
+[2024-02-16 13:09:17 [32mINFO [0;39m restartedMain] [org.hibernate.jpa.internal.util.LogHelper] [36mHHH000204: Processing PersistenceUnitInfo [name: default][0;39m
+[2024-02-16 13:09:17 [32mINFO [0;39m restartedMain] [org.hibernate.cache.internal.RegionFactoryInitiator] [36mHHH000026: Second-level cache disabled[0;39m
+[2024-02-16 13:09:17 [32mINFO [0;39m restartedMain] [org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo] [36mNo LoadTimeWeaver setup: ignoring JPA class transformer[0;39m
+[2024-02-16 13:09:17 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-2 - Starting...[0;39m
+[2024-02-16 13:09:17 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-2 - Added connection org.mariadb.jdbc.Connection@22dfa01d[0;39m
+[2024-02-16 13:09:17 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-2 - Start completed.[0;39m
+[2024-02-16 13:09:17 [32mINFO [0;39m restartedMain] [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator] [36mHHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)[0;39m
+[2024-02-16 13:09:17 [33mWARN [0;39m restartedMain] [org.mariadb.jdbc.message.server.ErrorPacket] [36mError: 1005-HY000: Can't create table `greengram5_jpa`.`t_feed_fav` (errno: 150 "Foreign key constraint is incorrectly formed")[0;39m
+[2024-02-16 13:09:17 [33mWARN [0;39m restartedMain] [org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl] [36mGenerationTarget encountered exception accepting command : Error executing DDL "
+    alter table if exists t_feed_fav 
+       add constraint FKalybenj38gtn26k116aeoutm0 
+       foreign key (ifeed) 
+       references t_feed (ifeed)" via JDBC [(conn=396) Can't create table `greengram5_jpa`.`t_feed_fav` (errno: 150 "Foreign key constraint is incorrectly formed")][0;39m
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
+    alter table if exists t_feed_fav 
+       add constraint FKalybenj38gtn26k116aeoutm0 
+       foreign key (ifeed) 
+       references t_feed (ifeed)" via JDBC [(conn=396) Can't create table `greengram5_jpa`.`t_feed_fav` (errno: 150 "Foreign key constraint is incorrectly formed")]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:574)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:514)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applyForeignKeys(AbstractSchemaMigrator.java:446)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:268)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:117)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:286)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:315)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1820)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1769)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1232)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:950)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:762)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:464)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1358)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1347)
+	at com.greengram.greengram4.Greengram4Application.main(Greengram4Application.java:14)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: java.sql.SQLException: (conn=396) Can't create table `greengram5_jpa`.`t_feed_fav` (errno: 150 "Foreign key constraint is incorrectly formed")
+	at org.mariadb.jdbc.export.ExceptionFactory.createException(ExceptionFactory.java:299)
+	at org.mariadb.jdbc.export.ExceptionFactory.create(ExceptionFactory.java:370)
+	at org.mariadb.jdbc.message.ClientMessage.readPacket(ClientMessage.java:134)
+	at org.mariadb.jdbc.client.impl.StandardClient.readPacket(StandardClient.java:883)
+	at org.mariadb.jdbc.client.impl.StandardClient.readResults(StandardClient.java:822)
+	at org.mariadb.jdbc.client.impl.StandardClient.readResponse(StandardClient.java:741)
+	at org.mariadb.jdbc.client.impl.StandardClient.execute(StandardClient.java:665)
+	at org.mariadb.jdbc.Statement.executeInternal(Statement.java:956)
+	at org.mariadb.jdbc.Statement.execute(Statement.java:1082)
+	at org.mariadb.jdbc.Statement.execute(Statement.java:474)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	... 42 common frames omitted
+[2024-02-16 13:09:17 [33mWARN [0;39m restartedMain] [org.mariadb.jdbc.message.server.ErrorPacket] [36mError: 1005-HY000: Can't create table `greengram5_jpa`.`t_feed_fav` (errno: 150 "Foreign key constraint is incorrectly formed")[0;39m
+[2024-02-16 13:09:17 [33mWARN [0;39m restartedMain] [org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl] [36mGenerationTarget encountered exception accepting command : Error executing DDL "
+    alter table if exists t_feed_fav 
+       add constraint FKo6600vkkvnm3ys107hvagwdjp 
+       foreign key (iuser) 
+       references t_user (iuser)" via JDBC [(conn=396) Can't create table `greengram5_jpa`.`t_feed_fav` (errno: 150 "Foreign key constraint is incorrectly formed")][0;39m
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
+    alter table if exists t_feed_fav 
+       add constraint FKo6600vkkvnm3ys107hvagwdjp 
+       foreign key (iuser) 
+       references t_user (iuser)" via JDBC [(conn=396) Can't create table `greengram5_jpa`.`t_feed_fav` (errno: 150 "Foreign key constraint is incorrectly formed")]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:574)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:514)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applyForeignKeys(AbstractSchemaMigrator.java:446)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:268)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:117)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:286)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:315)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1820)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1769)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1232)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:950)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:762)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:464)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1358)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1347)
+	at com.greengram.greengram4.Greengram4Application.main(Greengram4Application.java:14)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: java.sql.SQLException: (conn=396) Can't create table `greengram5_jpa`.`t_feed_fav` (errno: 150 "Foreign key constraint is incorrectly formed")
+	at org.mariadb.jdbc.export.ExceptionFactory.createException(ExceptionFactory.java:299)
+	at org.mariadb.jdbc.export.ExceptionFactory.create(ExceptionFactory.java:370)
+	at org.mariadb.jdbc.message.ClientMessage.readPacket(ClientMessage.java:134)
+	at org.mariadb.jdbc.client.impl.StandardClient.readPacket(StandardClient.java:883)
+	at org.mariadb.jdbc.client.impl.StandardClient.readResults(StandardClient.java:822)
+	at org.mariadb.jdbc.client.impl.StandardClient.readResponse(StandardClient.java:741)
+	at org.mariadb.jdbc.client.impl.StandardClient.execute(StandardClient.java:665)
+	at org.mariadb.jdbc.Statement.executeInternal(Statement.java:956)
+	at org.mariadb.jdbc.Statement.execute(Statement.java:1082)
+	at org.mariadb.jdbc.Statement.execute(Statement.java:474)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	... 42 common frames omitted
+[2024-02-16 13:09:17 [32mINFO [0;39m restartedMain] [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] [36mInitialized JPA EntityManagerFactory for persistence unit 'default'[0;39m
+[2024-02-16 13:09:17 [32mINFO [0;39m restartedMain] [org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping] [36mAdding welcome page: class path resource [static/index.html][0;39m
+[2024-02-16 13:09:17 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@9fee779, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5e858afa, org.springframework.security.web.context.SecurityContextHolderFilter@17a26f6b, org.springframework.security.web.header.HeaderWriterFilter@715ac2f4, org.springframework.web.filter.CorsFilter@eac24ae, org.springframework.security.web.authentication.logout.LogoutFilter@100063ca, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@95d7349, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@13624ab3, com.greengram.greengram4.security.JwtAuthenticationFilter@782012ce, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5809e63e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7fe3c2a9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@f9ac01a, org.springframework.security.web.session.SessionManagementFilter@68b28be3, org.springframework.security.web.access.ExceptionTranslationFilter@1f1a1fce, org.springframework.security.web.access.intercept.AuthorizationFilter@1a505dfa][0;39m
+[2024-02-16 13:09:17 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m
+[2024-02-16 13:09:17 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m
+[2024-02-16 13:09:17 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m
+[2024-02-16 13:09:17 [32mINFO [0;39m restartedMain] [com.greengram.greengram4.Greengram4Application] [36mStarted Greengram4Application in 0.923 seconds (process running for 1448.801)[0;39m
+[2024-02-16 13:09:17 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener] [36mCondition evaluation unchanged[0;39m
+[2024-02-16 13:09:19 [32mINFO [0;39m File Watcher] [org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] [36mRestarting due to 36 class path changes (5 additions, 0 deletions, 31 modifications)[0;39m
+[2024-02-16 13:09:19 [32mINFO [0;39m Thread-7] [org.apache.coyote.http11.Http11NioProtocol] [36mStopping ProtocolHandler ["http-nio-8080"][0;39m
+[2024-02-16 13:09:19 [32mINFO [0;39m Thread-7] [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] [36mClosing JPA EntityManagerFactory for persistence unit 'default'[0;39m
+[2024-02-16 13:09:19 [32mINFO [0;39m Thread-7] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-2 - Shutdown initiated...[0;39m
+[2024-02-16 13:09:19 [32mINFO [0;39m Thread-7] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-2 - Shutdown completed.[0;39m
+[2024-02-16 13:09:19 [32mINFO [0;39m restartedMain] [com.greengram.greengram4.Greengram4Application] [36mStarting Greengram4Application using Java 17.0.8.1 with PID 10780 (D:\Student\Java2023\greengram5\build\classes\java\main started by Administrator in D:\Student\Java2023\greengram5)[0;39m
+[2024-02-16 13:09:19 [32mINFO [0;39m restartedMain] [com.greengram.greengram4.Greengram4Application] [36mThe following 1 profile is active: "jpa"[0;39m
+[2024-02-16 13:09:19 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data JPA repositories in DEFAULT mode.[0;39m
+[2024-02-16 13:09:19 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 12 ms. Found 3 JPA repository interfaces.[0;39m
+[2024-02-16 13:09:19 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m
+[2024-02-16 13:09:19 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m
+[2024-02-16 13:09:19 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m
+[2024-02-16 13:09:19 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.17][0;39m
+[2024-02-16 13:09:19 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m
+[2024-02-16 13:09:19 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 308 ms[0;39m
+[2024-02-16 13:09:19 [32mINFO [0;39m restartedMain] [com.greengram.greengram4.security.JwtTokenProvider] [36msecret:DaeguGreenArtAcademyClass502RoomForJavaSpringBootFighting[0;39m
+[2024-02-16 13:09:19 [32mINFO [0;39m restartedMain] [org.hibernate.jpa.internal.util.LogHelper] [36mHHH000204: Processing PersistenceUnitInfo [name: default][0;39m
+[2024-02-16 13:09:19 [32mINFO [0;39m restartedMain] [org.hibernate.cache.internal.RegionFactoryInitiator] [36mHHH000026: Second-level cache disabled[0;39m
+[2024-02-16 13:09:19 [32mINFO [0;39m restartedMain] [org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo] [36mNo LoadTimeWeaver setup: ignoring JPA class transformer[0;39m
+[2024-02-16 13:09:19 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-3 - Starting...[0;39m
+[2024-02-16 13:09:19 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-3 - Added connection org.mariadb.jdbc.Connection@760b23d6[0;39m
+[2024-02-16 13:09:19 [32mINFO [0;39m restartedMain] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-3 - Start completed.[0;39m
+[2024-02-16 13:09:19 [32mINFO [0;39m restartedMain] [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator] [36mHHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)[0;39m
+[2024-02-16 13:09:19 [33mWARN [0;39m restartedMain] [org.mariadb.jdbc.message.server.ErrorPacket] [36mError: 1005-HY000: Can't create table `greengram5_jpa`.`t_feed_fav` (errno: 150 "Foreign key constraint is incorrectly formed")[0;39m
+[2024-02-16 13:09:19 [33mWARN [0;39m restartedMain] [org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl] [36mGenerationTarget encountered exception accepting command : Error executing DDL "
+    alter table if exists t_feed_fav 
+       add constraint FKalybenj38gtn26k116aeoutm0 
+       foreign key (ifeed) 
+       references t_feed (ifeed)" via JDBC [(conn=406) Can't create table `greengram5_jpa`.`t_feed_fav` (errno: 150 "Foreign key constraint is incorrectly formed")][0;39m
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
+    alter table if exists t_feed_fav 
+       add constraint FKalybenj38gtn26k116aeoutm0 
+       foreign key (ifeed) 
+       references t_feed (ifeed)" via JDBC [(conn=406) Can't create table `greengram5_jpa`.`t_feed_fav` (errno: 150 "Foreign key constraint is incorrectly formed")]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:574)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:514)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applyForeignKeys(AbstractSchemaMigrator.java:446)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:268)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:117)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:286)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:315)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1820)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1769)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1232)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:950)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:762)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:464)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1358)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1347)
+	at com.greengram.greengram4.Greengram4Application.main(Greengram4Application.java:14)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: java.sql.SQLException: (conn=406) Can't create table `greengram5_jpa`.`t_feed_fav` (errno: 150 "Foreign key constraint is incorrectly formed")
+	at org.mariadb.jdbc.export.ExceptionFactory.createException(ExceptionFactory.java:299)
+	at org.mariadb.jdbc.export.ExceptionFactory.create(ExceptionFactory.java:370)
+	at org.mariadb.jdbc.message.ClientMessage.readPacket(ClientMessage.java:134)
+	at org.mariadb.jdbc.client.impl.StandardClient.readPacket(StandardClient.java:883)
+	at org.mariadb.jdbc.client.impl.StandardClient.readResults(StandardClient.java:822)
+	at org.mariadb.jdbc.client.impl.StandardClient.readResponse(StandardClient.java:741)
+	at org.mariadb.jdbc.client.impl.StandardClient.execute(StandardClient.java:665)
+	at org.mariadb.jdbc.Statement.executeInternal(Statement.java:956)
+	at org.mariadb.jdbc.Statement.execute(Statement.java:1082)
+	at org.mariadb.jdbc.Statement.execute(Statement.java:474)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	... 42 common frames omitted
+[2024-02-16 13:09:19 [33mWARN [0;39m restartedMain] [org.mariadb.jdbc.message.server.ErrorPacket] [36mError: 1005-HY000: Can't create table `greengram5_jpa`.`t_feed_fav` (errno: 150 "Foreign key constraint is incorrectly formed")[0;39m
+[2024-02-16 13:09:19 [33mWARN [0;39m restartedMain] [org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl] [36mGenerationTarget encountered exception accepting command : Error executing DDL "
+    alter table if exists t_feed_fav 
+       add constraint FKo6600vkkvnm3ys107hvagwdjp 
+       foreign key (iuser) 
+       references t_user (iuser)" via JDBC [(conn=406) Can't create table `greengram5_jpa`.`t_feed_fav` (errno: 150 "Foreign key constraint is incorrectly formed")][0;39m
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
+    alter table if exists t_feed_fav 
+       add constraint FKo6600vkkvnm3ys107hvagwdjp 
+       foreign key (iuser) 
+       references t_user (iuser)" via JDBC [(conn=406) Can't create table `greengram5_jpa`.`t_feed_fav` (errno: 150 "Foreign key constraint is incorrectly formed")]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:574)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:514)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applyForeignKeys(AbstractSchemaMigrator.java:446)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:268)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:117)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:286)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:315)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1820)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1769)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1232)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:950)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:762)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:464)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1358)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1347)
+	at com.greengram.greengram4.Greengram4Application.main(Greengram4Application.java:14)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: java.sql.SQLException: (conn=406) Can't create table `greengram5_jpa`.`t_feed_fav` (errno: 150 "Foreign key constraint is incorrectly formed")
+	at org.mariadb.jdbc.export.ExceptionFactory.createException(ExceptionFactory.java:299)
+	at org.mariadb.jdbc.export.ExceptionFactory.create(ExceptionFactory.java:370)
+	at org.mariadb.jdbc.message.ClientMessage.readPacket(ClientMessage.java:134)
+	at org.mariadb.jdbc.client.impl.StandardClient.readPacket(StandardClient.java:883)
+	at org.mariadb.jdbc.client.impl.StandardClient.readResults(StandardClient.java:822)
+	at org.mariadb.jdbc.client.impl.StandardClient.readResponse(StandardClient.java:741)
+	at org.mariadb.jdbc.client.impl.StandardClient.execute(StandardClient.java:665)
+	at org.mariadb.jdbc.Statement.executeInternal(Statement.java:956)
+	at org.mariadb.jdbc.Statement.execute(Statement.java:1082)
+	at org.mariadb.jdbc.Statement.execute(Statement.java:474)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	... 42 common frames omitted
+[2024-02-16 13:09:19 [32mINFO [0;39m restartedMain] [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] [36mInitialized JPA EntityManagerFactory for persistence unit 'default'[0;39m
+[2024-02-16 13:09:19 [32mINFO [0;39m restartedMain] [org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping] [36mAdding welcome page: class path resource [static/index.html][0;39m
+[2024-02-16 13:09:19 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@678a7cff, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2c9009a1, org.springframework.security.web.context.SecurityContextHolderFilter@7b5a3cba, org.springframework.security.web.header.HeaderWriterFilter@2ab9a3fb, org.springframework.web.filter.CorsFilter@5b8d20ec, org.springframework.security.web.authentication.logout.LogoutFilter@6aa1414d, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@63d51087, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@68e082f7, com.greengram.greengram4.security.JwtAuthenticationFilter@797936b7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@341b91ec, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@535a5aef, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3716e650, org.springframework.security.web.session.SessionManagementFilter@11c057ae, org.springframework.security.web.access.ExceptionTranslationFilter@3aaea411, org.springframework.security.web.access.intercept.AuthorizationFilter@3518682][0;39m
+[2024-02-16 13:09:19 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m
+[2024-02-16 13:09:19 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m
+[2024-02-16 13:09:19 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m
+[2024-02-16 13:09:19 [32mINFO [0;39m restartedMain] [com.greengram.greengram4.Greengram4Application] [36mStarted Greengram4Application in 0.788 seconds (process running for 1451.066)[0;39m
+[2024-02-16 13:09:19 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener] [36mCondition evaluation unchanged[0;39m

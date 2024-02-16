@@ -90,7 +90,9 @@ public class FeedService {
     public List<FeedSelVo> getfeedAll(FeedSelDto dto, Pageable pageable) {
         List<FeedSelVo> list = null;
         if(dto.getIsFavList() == 0 && dto.getTargetIuser() > 0){
-            repository.findAllByUserEntityOrderByIfeedDesc(null, pageable);
+            UserEntity userEntity = new UserEntity();
+            userEntity.setIuser((long)dto.getTargetIuser());
+            List<FeedEntity> feedEntityList = repository.findAllByUserEntityOrderByIfeedDesc(userEntity, pageable);
         }
 
             list = mapper.feedSel(dto);
