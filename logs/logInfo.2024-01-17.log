@@ -287,7 +287,7 @@ This generated password is for development use only. Your security configuration
 [2024-01-17 11:58:33 [32mINFO [0;39m http-nio-8080-exec-6] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-1 - Added connection org.mariadb.jdbc.Connection@2a37826[0;39m
 [2024-01-17 11:58:33 [32mINFO [0;39m http-nio-8080-exec-6] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Start completed.[0;39m
 [2024-01-17 11:58:33 [33mWARN [0;39m http-nio-8080-exec-6] [com.greengram.greengram4.exception.GlobalExceptionHandler] [36mhandleException[0;39m
-java.lang.NullPointerException: Cannot invoke "com.greengram.greengram4.user.model.UserEntity.getIuser()" because "entity" is null
+java.lang.NullPointerException: Cannot invoke "com.greengram.greengram4.user.model.UserModel.getIuser()" because "entity" is null
 	at com.greengram.greengram4.user.UserService.signin(UserService.java:73)
 	at com.greengram.greengram4.user.UserController.postSignin(UserController.java:34)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -393,7 +393,7 @@ java.lang.NullPointerException: Cannot invoke "com.greengram.greengram4.user.mod
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-[2024-01-17 11:58:33 [33mWARN [0;39m http-nio-8080-exec-6] [org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver] [36mResolved [java.lang.NullPointerException: Cannot invoke "com.greengram.greengram4.user.model.UserEntity.getIuser()" because "entity" is null][0;39m
+[2024-01-17 11:58:33 [33mWARN [0;39m http-nio-8080-exec-6] [org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver] [36mResolved [java.lang.NullPointerException: Cannot invoke "com.greengram.greengram4.user.model.UserModel.getIuser()" because "entity" is null][0;39m
 [2024-01-17 11:59:05 [32mINFO [0;39m http-nio-8080-exec-7] [com.greengram.greengram4.security.JwtAuthenticationFilter] [36mJwtAuthentication - token : null[0;39m
 [2024-01-17 11:59:05 [33mWARN [0;39m http-nio-8080-exec-7] [org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver] [36mResolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('"' (code 34)): was expecting comma to separate Object entries][0;39m
 [2024-01-17 11:59:09 [32mINFO [0;39m http-nio-8080-exec-8] [com.greengram.greengram4.security.JwtAuthenticationFilter] [36mJwtAuthentication - token : null[0;39m

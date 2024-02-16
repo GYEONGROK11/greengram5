@@ -12,6 +12,8 @@ import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -38,8 +40,9 @@ public class FeedController {
 
     @Operation(summary = "피드 리스트",description = "피드 등록 처리")
     @GetMapping
-    public List<FeedSelVo> GetFeed(FeedSelDto dto){
-        List<FeedSelVo> vo = service.feedSel(dto);
+    public List<FeedSelVo> getFeedAll(FeedSelDto dto, @PageableDefault(page = 1, size = 30) Pageable pageable){
+        log.info("pageable {}",pageable);
+        List<FeedSelVo> vo = service.getfeedAll(dto, pageable);
         log.info("{}",dto);
         return vo;
     }

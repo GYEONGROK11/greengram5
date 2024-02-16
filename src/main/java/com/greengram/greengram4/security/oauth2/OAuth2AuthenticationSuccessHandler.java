@@ -5,7 +5,7 @@ import com.greengram.greengram4.common.CookieUtils;
 import com.greengram.greengram4.security.JwtTokenProvider;
 import com.greengram.greengram4.security.MyPrincipal;
 import com.greengram.greengram4.security.MyUserDetails;
-import com.greengram.greengram4.user.model.UserEntity;
+import com.greengram.greengram4.user.model.UserModel;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
@@ -67,14 +67,14 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
         cookieUtils.deleteCookie(response,"rt");
         cookieUtils.setCookie(response,"rt",rt,rtCookieMaxAge);
 
-        UserEntity userEntity = myUserDetails.getUserEntity();
+        UserModel userModel = myUserDetails.getUserModel();
 
         return UriComponentsBuilder.fromUriString(targetUrl)
                 .queryParam("access_token",at)
-                .queryParam("iuser",userEntity.getIuser())
-                .queryParam("nm",userEntity.getNm()).encode()//한글이라 인코딩 필요
-                .queryParam("pic",userEntity.getPic())
-                .queryParam("firebase_token",userEntity.getFirebaseToken())
+                .queryParam("iuser", userModel.getIuser())
+                .queryParam("nm", userModel.getNm()).encode()//한글이라 인코딩 필요
+                .queryParam("pic", userModel.getPic())
+                .queryParam("firebase_token", userModel.getFirebaseToken())
                 .build()
                 .toUriString();
     }

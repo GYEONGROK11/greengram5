@@ -8,6 +8,7 @@ import lombok.Data;
 @Data
 public class FeedSelDto {
     @Schema(title = "페이지",defaultValue = "1")
+    @JsonIgnore
     private int page;
     @Schema(title = "로그인한 유저pk")
     private int loginedIuser;

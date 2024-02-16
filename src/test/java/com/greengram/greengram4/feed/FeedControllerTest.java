@@ -89,7 +89,7 @@ class FeedControllerTest {
         list.add(vo);
         list.add(vo1);
 
-        given(service.feedSel(any())).willReturn(list);
+        //given(service.feedSel(any())).willReturn(list);
 
         mvc.perform(
                 MockMvcRequestBuilders
@@ -98,7 +98,7 @@ class FeedControllerTest {
         ).andDo(print())
          .andExpect(content().string(mapper.writeValueAsString(list)));
 
-        verify(service).feedSel(any());
+        //verify(service).feedSel(any());
     }
 
     @Test

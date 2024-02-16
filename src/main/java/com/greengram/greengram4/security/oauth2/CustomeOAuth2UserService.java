@@ -2,11 +2,10 @@ package com.greengram.greengram4.security.oauth2;
 
 import com.greengram.greengram4.security.MyPrincipal;
 import com.greengram.greengram4.security.MyUserDetails;
-import com.greengram.greengram4.security.oauth2.SocialProviderType;
 import com.greengram.greengram4.security.oauth2.userinfo.OAuth2UserInfo;
 import com.greengram.greengram4.security.oauth2.userinfo.OAuth2UserInfoFactory;
 import com.greengram.greengram4.user.UserMapper;
-import com.greengram.greengram4.user.model.UserEntity;
+import com.greengram.greengram4.user.model.UserModel;
 import com.greengram.greengram4.user.model.UserSelDto;
 import com.greengram.greengram4.user.model.UserSignupProcDto;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +18,6 @@ import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
-import java.util.UUID;
 
 
 @Service
@@ -53,7 +51,7 @@ public class CustomeOAuth2UserService extends DefaultOAuth2UserService {
                 .providerType(socialProviderType.name())
                 .uid(oAuth2UserInfo.getId())
                 .build();
-        UserEntity savedUser = mapper.selUser(dto); //null이면 카카오아이디로 회원가입하지 않은 상태
+        UserModel savedUser = mapper.selUser(dto); //null이면 카카오아이디로 회원가입하지 않은 상태
         if(savedUser == null){ //회원가입처리
             savedUser = signupUser(oAuth2UserInfo, socialProviderType);
         }
@@ -65,12 +63,12 @@ public class CustomeOAuth2UserService extends DefaultOAuth2UserService {
         myPrincipal.getRoles().add(savedUser.getRole());
 
         return MyUserDetails.builder()
-                .userEntity(savedUser)
+                .userModel(savedUser)
                 .attributes(attrs)
                 .myPrincipal(myPrincipal)
                 .build();
     }
-    private UserEntity signupUser(OAuth2UserInfo oAuth2UserInfo, SocialProviderType socialProviderType){
+    private UserModel signupUser(OAuth2UserInfo oAuth2UserInfo, SocialProviderType socialProviderType){
         UserSignupProcDto dto = UserSignupProcDto.builder()
                 .providerType(socialProviderType.name())
                 .uid(oAuth2UserInfo.getId())
@@ -81,7 +79,7 @@ public class CustomeOAuth2UserService extends DefaultOAuth2UserService {
                 .build();
         int result = mapper.insUser(dto);
 
-        UserEntity entity = new UserEntity();
+        UserModel entity = new UserModel();
         entity.setIuser(dto.getIuser());
         entity.setUid(dto.getUid());
         entity.setRole(dto.getRole());

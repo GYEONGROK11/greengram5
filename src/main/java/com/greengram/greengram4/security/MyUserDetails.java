@@ -1,6 +1,6 @@
 package com.greengram.greengram4.security;
 
-import com.greengram.greengram4.user.model.UserEntity;
+import com.greengram.greengram4.user.model.UserModel;
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
@@ -18,7 +18,7 @@ public class MyUserDetails implements UserDetails, OAuth2User {
                                      //로컬로그인  ,  소셜로그인
     private MyPrincipal myPrincipal;
     private Map<String,Object> attributes;
-    private UserEntity userEntity;
+    private UserModel userModel;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() { //호출후 값으로 권한 처리
@@ -41,7 +41,7 @@ public class MyUserDetails implements UserDetails, OAuth2User {
 
     @Override
     public String getUsername() {
-        return userEntity == null ? null : userEntity.getUid();
+        return userModel == null ? null : userModel.getUid();
     }
 
     @Override

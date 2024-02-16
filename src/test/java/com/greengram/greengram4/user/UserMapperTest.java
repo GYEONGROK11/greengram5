@@ -33,7 +33,7 @@ class UserMapperTest {
         dto1.setUid(dto.getUid());
 
 
-        UserEntity result1 = mapper.selUser(dto1);
+        UserModel result1 = mapper.selUser(dto1);
         log.info("result1: {}",result1);
 
         assertEquals(dto.getIuser(),result1.getIuser());

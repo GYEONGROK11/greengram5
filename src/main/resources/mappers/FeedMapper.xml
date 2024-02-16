@@ -26,7 +26,7 @@
         </choose>
         ON B.ifeed = C.ifeed
         AND C.iuser = #{loginedIuser}
-        <if test="isFavList == 0 and targetIuser>0">
+        <if test="isFavList == 0 and targetIuser > 0">
             WHERE B.iuser = #{targetIuser}
         </if>
         ORDER BY B.ifeed DESC

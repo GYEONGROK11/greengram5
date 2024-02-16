@@ -29,9 +29,9 @@ public class UserController {
 
     @PostMapping("/signin")
     @Operation(summary = "인증",description = "아이디/비번을 활용한 인증처리")
-    public UserSigninVo postSignin(HttpServletRequest req, HttpServletResponse res
+    public UserSigninVo postSignin(HttpServletResponse res
             , @RequestBody UserSigninDto dto){
-        return service.signin(req, res, dto);
+        return service.signin(res, dto);
     }
 
     @PostMapping("/signout")
@@ -42,7 +42,7 @@ public class UserController {
 
 
     @PatchMapping("/pic")
-    public UserPicPatchDto patchUserPic(@RequestBody MultipartFile pic) {
+    public UserPicPatchDto patchUserPic(MultipartFile pic) {
         return service.patchUserPic(pic);
     }
 

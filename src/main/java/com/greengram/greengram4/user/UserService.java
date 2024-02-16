@@ -1,8 +1,10 @@
 package com.greengram.greengram4.user;
 
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.greengram.greengram4.common.*;
+import com.greengram.greengram4.entity.UserEntity;
+import com.greengram.greengram4.entity.UserFollowEntity;
+import com.greengram.greengram4.entity.UserFollowIds;
 import com.greengram.greengram4.exception.AuthErrorCode;
 import com.greengram.greengram4.exception.RestApiException;
 import com.greengram.greengram4.security.AuthenticationFacade;
@@ -14,19 +16,22 @@ import com.greengram.greengram4.user.model.*;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicInteger;
 
 
 @Service
 @RequiredArgsConstructor
 public class UserService {
     private final UserMapper mapper;
+    private final UserRepository repository;
+    private final UserFollowRepository followRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtTokenProvider jwtTokenProvider;
     private final AppProperties appProperties;
@@ -34,7 +39,21 @@ public class UserService {
     private final AuthenticationFacade authenticationFacade;
     private final MyFileUtils myFileUtils;
 
-    public ResVo signup(UserSignupDto dto) {
+    public ResVo signup(UserSignupDto dto){
+        String hashedPw = passwordEncoder.encode(dto.getUpw());
+        UserEntity entity = UserEntity.builder()
+                .providerType(ProviderTypeEnum.LOCAL)
+                .uid(dto.getUid())
+                .upw(hashedPw)
+                .nm(dto.getNm())
+                .pic(dto.getPic())
+                .role(RoleEnum.USER)
+                .build();
+        repository.save(entity);
+        return new ResVo(entity.getIuser().intValue());
+    }
+
+    /*public ResVo signup(UserSignupDto dto) {
         //String hashcode = BCrypt.hashpw(dto.getUpw(),BCrypt.gensalt());
         String hashedPw = passwordEncoder.encode(dto.getUpw());
         UserSignupProcDto pDto = UserSignupProcDto.builder()
@@ -45,20 +64,46 @@ public class UserService {
                 .build();
         mapper.insUser(pDto);
         return new ResVo(pDto.getIuser());
+    }*/
+
+    public UserSigninVo signin(HttpServletResponse res, UserSigninDto dto) {
+        Optional<UserEntity> optEntity = repository
+                .findByProviderTypeAndUid(ProviderTypeEnum.LOCAL,dto.getUid());
+        UserEntity entity = optEntity.orElseThrow(() -> new RestApiException(AuthErrorCode.NOT_EXIST_USER_ID)); //있으면 넘기고 없으면 에러
+        if (!passwordEncoder.matches(dto.getUpw(), entity.getUpw())){
+            throw new RestApiException(AuthErrorCode.VALID_PASSWORD);
+        }
+
+        UserSigninVo vo = new UserSigninVo();
+        int iuser =entity.getIuser().intValue();
+        vo.setResult(Const.SUCCESS);
+        vo.setIuser(iuser);
+        vo.setNm(entity.getNm());
+        vo.setPic(entity.getPic());
+        vo.setFirebaseToken(entity.getFirebaseToken());
+
+        MyPrincipal myPrincipal = MyPrincipal.builder()
+                .iuser(iuser)
+                .build();
+
+        myPrincipal.getRoles().add(entity.getRole().name());
+
+        String at = jwtTokenProvider.generateAccessToken(myPrincipal);
+        String rt = jwtTokenProvider.generateRefreshToken(myPrincipal);
+
+        int rtCookieMaxAge = appProperties.getJwt().getRefreshTokenCookieMaxAge();
+        cookieUtils.deleteCookie(res,"rt");
+        cookieUtils.setCookie(res,"rt",rt,rtCookieMaxAge);
+
+        vo.setAccessToken(at);
+        return vo;
     }
-
-    public ResVo patchUserFirebaseToken(UserFirebaseTokenPatchDto dto) {
-        int affectedRows = mapper.updUserFirebaseToken(dto);
-        return new ResVo(affectedRows);
-    }
-
-
-    public UserSigninVo signin(HttpServletRequest req, HttpServletResponse res, UserSigninDto dto) {
+    /*public UserSigninVo signin(HttpServletResponse res, UserSigninDto dto) {
         UserSelDto sDto = new UserSelDto();
         sDto.setUid(dto.getUid());
         UserSigninVo vo = new UserSigninVo();
 
-        UserEntity entity = mapper.selUser(sDto);
+        UserModel entity = mapper.selUser(sDto);
         if (entity == null) {
             //vo.setResult(Const.LOGIN_NO_UID);
             throw new RestApiException(AuthErrorCode.NOT_EXIST_USER_ID);
@@ -96,14 +141,36 @@ public class UserService {
 
         vo.setAccessToken(at);
         return vo;
+    }*/
+
+    @Transactional
+    public ResVo patchUserFirebaseToken(UserFirebaseTokenPatchDto dto){
+        UserEntity entity = repository.getReferenceById((long)authenticationFacade.getLoginUserPk());
+        entity.setFirebaseToken(dto.getFirebaseToken());
+        return new ResVo(Const.SUCCESS);
     }
 
-    public ResVo signout(HttpServletResponse res){
-        cookieUtils.deleteCookie(res,"rt");
-        return new ResVo(1);
-    }
+    /*public ResVo patchUserFirebaseToken(UserFirebaseTokenPatchDto dto) {
+        int affectedRows = mapper.updUserFirebaseToken(dto);
+        return new ResVo(affectedRows);
+    }*/
 
+    @Transactional
     public UserPicPatchDto patchUserPic(MultipartFile pic) {
+        Long iuser = Long.valueOf(authenticationFacade.getLoginUserPk());
+        UserEntity entity = repository.getReferenceById(iuser);
+        String path = "/user/" + iuser;
+        myFileUtils.delFolderTrigger(path);
+        String savedPicFileNm = myFileUtils.transferTo(pic, path);
+        entity.setPic(savedPicFileNm);
+
+        UserPicPatchDto dto = new UserPicPatchDto();
+        dto.setIuser(iuser.intValue());
+        dto.setPic(savedPicFileNm);
+        return dto;
+    }
+
+    /*public UserPicPatchDto patchUserPic(MultipartFile pic) {
         UserPicPatchDto dto = new UserPicPatchDto();
         dto.setIuser(authenticationFacade.getLoginUserPk());
         String path = "/user/"+dto.getIuser();
@@ -112,6 +179,11 @@ public class UserService {
         dto.setPic(savedPicFileNm);
         int affectedRows = mapper.updUserPic(dto);
         return dto;
+    }*/
+
+    public ResVo signout(HttpServletResponse res){
+        cookieUtils.deleteCookie(res,"rt");
+        return new ResVo(1);
     }
 
     public UserSigninVo getRefreshToken(HttpServletRequest req){//at를 다시 만들어줌
@@ -145,6 +217,30 @@ public class UserService {
     }
 
     public ResVo follow(UserFollowDto dto) {
+        UserFollowIds ids = new UserFollowIds();
+        ids.setFromIuser((long)authenticationFacade.getLoginUserPk());
+        ids.setToIuser(dto.getToIuser());
+
+        AtomicInteger atomic = new AtomicInteger(Const.FAIL);
+
+        followRepository.findById(ids)
+                .ifPresentOrElse(
+                        entity -> followRepository.delete(entity)
+                        , () -> {
+                            atomic.set(Const.SUCCESS);
+                            UserFollowEntity saveUserFollwEntity = new UserFollowEntity();
+                            saveUserFollwEntity.setUserFollowIds(ids);
+                            UserEntity fromUserEntity = repository.getReferenceById((long)authenticationFacade.getLoginUserPk());
+                            UserEntity toUserEntity = repository.getReferenceById(dto.getToIuser());
+                            saveUserFollwEntity.setFromUserEntity(fromUserEntity);
+                            saveUserFollwEntity.setToUserEntity(toUserEntity);
+                            followRepository.save(saveUserFollwEntity);
+                        }
+                );
+        return new ResVo(atomic.get());
+    }
+
+    /*public ResVo follow(UserFollowDto dto) {
         int result = mapper.delFollow(dto);
 
         if (result == 0) {
@@ -152,7 +248,7 @@ public class UserService {
             return new ResVo(Const.SUCCESS);
         }
         return new ResVo(Const.FAIL);
-    }
+    }*/
 
 
     public UserInfoVo userInfo(UserInfoDto dto) {

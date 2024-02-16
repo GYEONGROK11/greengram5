@@ -8,7 +8,7 @@ import com.greengram.greengram4.common.Const;
 import com.greengram.greengram4.common.ResVo;
 import com.greengram.greengram4.dm.model.*;
 import com.greengram.greengram4.user.UserMapper;
-import com.greengram.greengram4.user.model.UserEntity;
+import com.greengram.greengram4.user.model.UserModel;
 import com.greengram.greengram4.user.model.UserSelDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -40,13 +40,13 @@ public class DmService {
         mapper.insDmUser2(dto);
         UserSelDto usDto = new UserSelDto();
         usDto.setIuser(dto.getOtherPersonIuser());
-        UserEntity userEntity = userMapper.selUser(usDto);
+        UserModel userModel = userMapper.selUser(usDto);
 
         return DmSelVo.builder()
                 .idm(dto.getIdm())
-                .otherPersonIuser(userEntity.getIuser())
-                .otherPersonNm(userEntity.getNm())
-                .otherPersonPic(userEntity.getPic())
+                .otherPersonIuser(userModel.getIuser())
+                .otherPersonNm(userModel.getNm())
+                .otherPersonPic(userModel.getPic())
                 .build();
 
     }
@@ -61,7 +61,7 @@ public class DmService {
         String createdAt = now.format(formatter); // 포맷 적용
 
         //상대방의 firebaseToken값 필요. 나의 pic, iuser값 필요.
-        UserEntity otherPerson = mapper.selOtherPersonByLoginUser(dto);
+        UserModel otherPerson = mapper.selOtherPersonByLoginUser(dto);
 
         try {
 
