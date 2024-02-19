@@ -10,9 +10,9 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "t_dm")
 public class DmEntity extends CreatedAtEntity{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(columnDefinition = "BIGINT UNSIGNED")
+    @Id //PK
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //오토인클리먼트
+    @Column(columnDefinition = "BIGINT UNSIGNED") //UNSIGNED를 위한 하드코딩
     private Long idm;
 
     @Column(length = 2000)

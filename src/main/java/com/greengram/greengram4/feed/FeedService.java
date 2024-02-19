@@ -1,6 +1,7 @@
 package com.greengram.greengram4.feed;
 
 import com.greengram.greengram4.common.*;
+import com.greengram.greengram4.entity.FeedCommentEntity;
 import com.greengram.greengram4.entity.FeedEntity;
 import com.greengram.greengram4.entity.FeedPicsEntity;
 import com.greengram.greengram4.entity.UserEntity;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -28,6 +30,7 @@ public class FeedService {
     private final FeedFavMapper favMapper;
     private final FeedCommentMapper commentMapper;
     private final FeedRepository repository;
+    private final FeedCommentRepository commentRepository;
     private final UserRepository userRepository;
     private final AuthenticationFacade authenticationFacade; //로그인과 관련
     private final MyFileUtils myFileUtils;
@@ -44,6 +47,7 @@ public class FeedService {
         feedEntity.setContents(dto.getContents());
         feedEntity.setLocation(dto.getLocation());
         repository.save(feedEntity);
+        //save 영속성
 
         String target = "/feed/"+ feedEntity.getIfeed();
         FeedPicsInsDto picsDto = new FeedPicsInsDto();
@@ -86,35 +90,50 @@ public class FeedService {
         log.info("{}",feedAffectedRows);
         return picsDto;
     }*/
-
+    @Transactional
     public List<FeedSelVo> getfeedAll(FeedSelDto dto, Pageable pageable) {
-        List<FeedSelVo> list = null;
+        List<FeedEntity> feedEntityList = null;
         if(dto.getIsFavList() == 0 && dto.getTargetIuser() > 0){
             UserEntity userEntity = new UserEntity();
             userEntity.setIuser((long)dto.getTargetIuser());
-            List<FeedEntity> feedEntityList = repository.findAllByUserEntityOrderByIfeedDesc(userEntity, pageable);
+            feedEntityList = repository.findAllByUserEntityOrderByIfeedDesc(userEntity, pageable);
         }
+    //function 파라미터와 리턴타입이 있음 //consumer 파라미터만 있음 void
 
-            list = mapper.feedSel(dto);
 
-        FeedCommentSelDto fcDto = new FeedCommentSelDto();
-        fcDto.setStartIdx(0);
-        fcDto.setRowCount(Const.FEED_COMMENT_FIRST_CMT);
-        for (FeedSelVo vo : list) {
-            List<String> pics = picsMapper.feedSelPics(vo.getIfeed());
-            vo.setPics(pics);
+        return feedEntityList == null
+                ? new ArrayList<>()
+                : feedEntityList.stream().map(item -> {
 
-            fcDto.setIfeed(vo.getIfeed());
-            List<FeedCommentSelVo> comments = commentMapper.selFeedCommentAll(fcDto);
 
-            vo.setComments(comments);
+                    List<FeedCommentSelVo> cmtList = commentRepository.findAllTop4ByFeedEntity(item)
+                        .stream()
+                            .map(cmt ->
+                          FeedCommentSelVo.builder()
+                                  .ifeedComment(cmt.getIfeedComment().intValue())
+                                  .writerIuser(cmt.getUserEntity().getIuser().intValue())
+                                  .writerNm(cmt.getUserEntity().getNm())
+                                  .writerPic(cmt.getUserEntity().getPic())
+                                  .comment(cmt.getComment())
+                                  .createdAt(cmt.getCreatedAt().toString())
+                                  .build()
+                        ).collect(Collectors.toList());
 
-            if (comments.size() == 4) {
-                vo.setIsMoreComment(1);
-                comments.remove(comments.size() - 1);
-            }
-        }
-        return list;
+                    UserEntity userEntity = item.getUserEntity();
+
+                        return FeedSelVo.builder()
+                                .ifeed(item.getIfeed().intValue())
+                                .contents(item.getContents())
+                                .location(item.getContents())
+                                .createdAt(item.getCreatedAt().toString())
+                                .writerIuser(userEntity.getIuser().intValue())
+                                .writerNm(userEntity.getNm())
+                                .writerPic(userEntity.getPic())
+                                .comments(cmtList)
+                                .build();
+                    }
+                ).collect(Collectors.toList());
+
     }
 
     /*public List<FeedSelVo> getfeedAll(FeedSelDto dto) {

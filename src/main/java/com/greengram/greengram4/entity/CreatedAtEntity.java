@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @MappedSuperclass // 나를 상속받으면 내가 가지고있는 매핑자료도 사용가능
 @EntityListeners(AuditingEntityListener.class) // 엔터티 적용 전에 콜백으로 AuditingEntityListener를 호출해 공통적으로 처리
 public class CreatedAtEntity {
-    @CreatedDate
+    @CreatedDate //옵션
     @Column(updatable = false, nullable = false)
     private LocalDateTime createdAt;
 

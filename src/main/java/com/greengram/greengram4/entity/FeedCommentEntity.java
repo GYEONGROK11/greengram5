@@ -14,7 +14,7 @@ public class FeedCommentEntity extends BaseEntity{
 
     @ManyToOne
     @JoinColumn(name = "iuser",nullable = false)
-    private UserEntity UserEntity;
+    private UserEntity userEntity;
 
     @ManyToOne
     @JoinColumn(name = "ifeed",nullable = false)

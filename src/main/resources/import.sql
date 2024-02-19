@@ -1,6 +1,6 @@
-INSERT INTO `t_user`(`created_at`, `iuser`, `nm`, `uid`, `upw`, `firebase_token`, `pic`, `provider_type`, `role`) VALUES ('2024-02-15 11:47:24.598049', 1, '경록1', 'rudfhr1', '$2a$10$/tHP/A9q4WJ3LnLwp0ENQORWS6SKVQXdvGmF9gfOQHdpSUCdwrzy6', 'tttt', '4d8e1a44-2687-4457-98bb-d40073c033d2.jfif', 'LOCAL', 'USER') ON DUPLICATE KEY UPDATE nm='엠아이씨0';
-INSERT INTO `t_user`(`created_at`, `iuser`, `nm`, `uid`, `upw`, `firebase_token`, `pic`, `provider_type`, `role`) VALUES ('2024-02-15 11:47:24.598049', 2, '경록2', 'rudfhr2', '$2a$10$/tHP/A9q4WJ3LnLwp0ENQORWS6SKVQXdvGmF9gfOQHdpSUCdwrzy6', 'tttt', '4d8e1a44-2687-4457-98bb-d40073c033d2.jfif', 'LOCAL', 'USER') ON DUPLICATE KEY UPDATE nm='엠아이씨2';
-INSERT INTO `t_user`(`created_at`, `iuser`, `nm`, `uid`, `upw`, `firebase_token`, `pic`, `provider_type`, `role`) VALUES ('2024-02-15 11:47:24.598049', 3, '경록3', 'rudfhr3', '$2a$10$/tHP/A9q4WJ3LnLwp0ENQORWS6SKVQXdvGmF9gfOQHdpSUCdwrzy6', 'tttt', '4d8e1a44-2687-4457-98bb-d40073c033d2.jfif', 'LOCAL', 'USER') ON DUPLICATE KEY UPDATE nm='엠아이씨3';
+INSERT INTO `t_user`(`created_at`, `iuser`, `nm`, `uid`, `upw`, `firebase_token`, `pic`, `provider_type`, `role`) VALUES ('2024-02-15 11:47:24.598049', 1, '경록1', 'rudfhr1', '$2a$10$/tHP/A9q4WJ3LnLwp0ENQORWS6SKVQXdvGmF9gfOQHdpSUCdwrzy6', 'tttt', '4d8e1a44-2687-4457-98bb-d40073c033d2.jfif', 'LOCAL', 'USER') ON DUPLICATE KEY UPDATE nm='경록1';
+INSERT INTO `t_user`(`created_at`, `iuser`, `nm`, `uid`, `upw`, `firebase_token`, `pic`, `provider_type`, `role`) VALUES ('2024-02-15 11:47:24.598049', 2, '경록2', 'rudfhr2', '$2a$10$/tHP/A9q4WJ3LnLwp0ENQORWS6SKVQXdvGmF9gfOQHdpSUCdwrzy6', 'tttt', '4d8e1a44-2687-4457-98bb-d40073c033d2.jfif', 'LOCAL', 'USER') ON DUPLICATE KEY UPDATE nm='경록2';
+INSERT INTO `t_user`(`created_at`, `iuser`, `nm`, `uid`, `upw`, `firebase_token`, `pic`, `provider_type`, `role`) VALUES ('2024-02-15 11:47:24.598049', 3, '경록3', 'rudfhr3', '$2a$10$/tHP/A9q4WJ3LnLwp0ENQORWS6SKVQXdvGmF9gfOQHdpSUCdwrzy6', 'tttt', '4d8e1a44-2687-4457-98bb-d40073c033d2.jfif', 'LOCAL', 'USER') ON DUPLICATE KEY UPDATE nm='경록3';
 
 
 INSERT INTO `t_feed` (`ifeed`, `iuser`, `contents`, `location`, `created_at`, `updated_at`) VALUES (1, 1, 'ㄹㄹㄹ', 'ddd', '2024-01-15 13:01:49', NULL);
@@ -16,17 +16,17 @@ INSERT INTO `t_feed` (`ifeed`, `iuser`, `contents`, `location`, `created_at`, `u
 INSERT INTO `t_feed` (`ifeed`, `iuser`, `contents`, `location`, `created_at`, `updated_at`) VALUES (12, 1, '방네', '동네', '2024-01-29 13:05:23', NULL);
 INSERT INTO `t_feed` (`ifeed`, `iuser`, `contents`, `location`, `created_at`, `updated_at`) VALUES (14, 1, '01월 30', '그린', '2024-01-30 09:43:26', NULL);
 INSERT INTO `t_feed` (`ifeed`, `iuser`, `contents`, `location`, `created_at`, `updated_at`) VALUES (16, 1, '01월 30', '그린', '2024-01-30 09:48:45', NULL);
-INSERT INTO `t_feed` (`ifeed`, `iuser`, `contents`, `location`, `created_at`, `updated_at`) VALUES (17, 2, 'B', 'A', '2024-02-01 12:24:35', NULL);
-INSERT INTO `t_feed` (`ifeed`, `iuser`, `contents`, `location`, `created_at`, `updated_at`) VALUES (18, 2, 'B', 'A', '2024-02-01 12:25:05', NULL);
-INSERT INTO `t_feed` (`ifeed`, `iuser`, `contents`, `location`, `created_at`, `updated_at`) VALUES (19, 2, 'B', 'A', '2024-02-01 12:28:08', NULL);
-INSERT INTO `t_feed` (`ifeed`, `iuser`, `contents`, `location`, `created_at`, `updated_at`) VALUES (20, 2, 'B', 'A', '2024-02-01 12:28:31', NULL);
-INSERT INTO `t_feed` (`ifeed`, `iuser`, `contents`, `location`, `created_at`, `updated_at`) VALUES (21, 2, 'B', 'A', '2024-02-01 12:28:42', NULL);
-INSERT INTO `t_feed` (`ifeed`, `iuser`, `contents`, `location`, `created_at`, `updated_at`) VALUES (22, 2, 'B', 'A', '2024-02-01 12:29:25', NULL);
-INSERT INTO `t_feed` (`ifeed`, `iuser`, `contents`, `location`, `created_at`, `updated_at`) VALUES (23, 3, 'B', 'A', '2024-02-01 12:35:49', NULL);
-INSERT INTO `t_feed` (`ifeed`, `iuser`, `contents`, `location`, `created_at`, `updated_at`) VALUES (24, 2, 'B', 'A', '2024-02-01 12:36:48', NULL);
-INSERT INTO `t_feed` (`ifeed`, `iuser`, `contents`, `location`, `created_at`, `updated_at`) VALUES (25, 1, 'B', 'A', '2024-02-01 12:37:42', NULL);
-INSERT INTO `t_feed` (`ifeed`, `iuser`, `contents`, `location`, `created_at`, `updated_at`) VALUES (26, 2, 'B', 'A', '2024-02-01 12:37:49', NULL);
-INSERT INTO `t_feed` (`ifeed`, `iuser`, `contents`, `location`, `created_at`, `updated_at`) VALUES (27, 3, 'B', 'A', '2024-02-01 12:46:04', NULL);
+INSERT INTO `t_feed` (`ifeed`, `iuser`, `contents`, `location`, `created_at`, `updated_at`) VALUES (17, 2, 'Bㅁㅇ', 'Aㅁㄹ', '2024-02-01 12:24:35', NULL);
+INSERT INTO `t_feed` (`ifeed`, `iuser`, `contents`, `location`, `created_at`, `updated_at`) VALUES (18, 2, 'Bㅎㅁㄴ', 'Aㅁㅎ', '2024-02-01 12:25:05', NULL);
+INSERT INTO `t_feed` (`ifeed`, `iuser`, `contents`, `location`, `created_at`, `updated_at`) VALUES (19, 2, 'Bㅎㅈ', 'Aㅎㅁㅎ', '2024-02-01 12:28:08', NULL);
+INSERT INTO `t_feed` (`ifeed`, `iuser`, `contents`, `location`, `created_at`, `updated_at`) VALUES (20, 2, 'Bㅎㅈㅇ', 'Aㅎㅁㄴ', '2024-02-01 12:28:31', NULL);
+INSERT INTO `t_feed` (`ifeed`, `iuser`, `contents`, `location`, `created_at`, `updated_at`) VALUES (21, 2, 'Bㅎㄴㅁ', 'Aㅁㅎㄴ', '2024-02-01 12:28:42', NULL);
+INSERT INTO `t_feed` (`ifeed`, `iuser`, `contents`, `location`, `created_at`, `updated_at`) VALUES (22, 2, 'Bㅎㄴㅁㅎㄴㅁ', 'Aㅎㅁㄴㅇ', '2024-02-01 12:29:25', NULL);
+INSERT INTO `t_feed` (`ifeed`, `iuser`, `contents`, `location`, `created_at`, `updated_at`) VALUES (23, 3, 'Bㅎㄴㅁ', 'Aㅎㅁㄴㅇ', '2024-02-01 12:35:49', NULL);
+INSERT INTO `t_feed` (`ifeed`, `iuser`, `contents`, `location`, `created_at`, `updated_at`) VALUES (24, 2, 'Bㅋㅍㅌㅊ', 'Aㅋㅍㅌㅊ', '2024-02-01 12:36:48', NULL);
+INSERT INTO `t_feed` (`ifeed`, `iuser`, `contents`, `location`, `created_at`, `updated_at`) VALUES (25, 1, 'Bㅋㅌㅍ', 'Aㅋㅌㅍ', '2024-02-01 12:37:42', NULL);
+INSERT INTO `t_feed` (`ifeed`, `iuser`, `contents`, `location`, `created_at`, `updated_at`) VALUES (26, 2, 'Bㅍㅋㅌㅊ', 'Aㅋㅌㅍㅊ', '2024-02-01 12:37:49', NULL);
+INSERT INTO `t_feed` (`ifeed`, `iuser`, `contents`, `location`, `created_at`, `updated_at`) VALUES (27, 3, 'Bㅋㅌㅍ', 'Aㅁㄴ', '2024-02-01 12:46:04', NULL);
 
 INSERT INTO `t_feed_pics` (`ifeed_pics`, `ifeed`, `pic`, `created_at`) VALUES (1, 1, '4939a26f-44ad-4da8-bde0-8bf7bdaf083b.jpg', '2024-01-15 13:01:49');
 INSERT INTO `t_feed_pics` (`ifeed_pics`, `ifeed`, `pic`, `created_at`) VALUES (2, 1, '0407053c-26af-4c5b-9812-053f8b07dc94.png', '2024-01-15 13:01:49');

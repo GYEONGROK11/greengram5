@@ -10,11 +10,11 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "t_dm_msg")
 public class DmMsgEntity extends CreatedAtEntity{
-    @EmbeddedId
+    @EmbeddedId //복합키 만들기
     private DmMsgIds dmMsgIds;
 
-    @ManyToOne
-    @MapsId("idm")
+    @ManyToOne  //포링키
+    @MapsId("idm")  //Ids에 있는 필드명, 없으면 컬럼 추가됨
     @JoinColumn(columnDefinition = "BIGINT UNSIGNED", name = "idm")
     private DmEntity dmEntity;
 

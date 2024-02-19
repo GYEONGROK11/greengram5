@@ -14,7 +14,7 @@ import org.hibernate.annotations.ColumnDefault;
 @Table(name = "t_user", uniqueConstraints = {
         @UniqueConstraint(
                 columnNames = {"uid","provider_type"}
-        )
+        ) //복합 유니크
 })
 @Builder
 @AllArgsConstructor
