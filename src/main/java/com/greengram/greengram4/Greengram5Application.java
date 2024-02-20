@@ -22,5 +22,11 @@ public class Greengram5Application {
     @Bean
     public PageableHandlerMethodArgumentResolverCustomizer customizer(){
         return p -> p.setOneIndexedParameters(true);  //페이지너블 1로설정
+        /*return new PageableHandlerMethodArgumentResolverCustomizer() {
+            @Override
+            public void customize(PageableHandlerMethodArgumentResolver pageableResolver) {
+                pageableResolver.setOneIndexedParameters(true);
+            }
+        };*/
     }
 }

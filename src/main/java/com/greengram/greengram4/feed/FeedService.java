@@ -1,10 +1,7 @@
 package com.greengram.greengram4.feed;
 
 import com.greengram.greengram4.common.*;
-import com.greengram.greengram4.entity.FeedCommentEntity;
-import com.greengram.greengram4.entity.FeedEntity;
-import com.greengram.greengram4.entity.FeedPicsEntity;
-import com.greengram.greengram4.entity.UserEntity;
+import com.greengram.greengram4.entity.*;
 import com.greengram.greengram4.exception.FeedErrorCode;
 import com.greengram.greengram4.exception.RestApiException;
 import com.greengram.greengram4.feed.model.*;
@@ -31,6 +28,7 @@ public class FeedService {
     private final FeedCommentMapper commentMapper;
     private final FeedRepository repository;
     private final FeedCommentRepository commentRepository;
+    private final FeedFavRepository favRepository;
     private final UserRepository userRepository;
     private final AuthenticationFacade authenticationFacade; //로그인과 관련
     private final MyFileUtils myFileUtils;
@@ -90,6 +88,7 @@ public class FeedService {
         log.info("{}",feedAffectedRows);
         return picsDto;
     }*/
+
     @Transactional
     public List<FeedSelVo> getfeedAll(FeedSelDto dto, Pageable pageable) {
         List<FeedEntity> feedEntityList = null;
@@ -105,6 +104,16 @@ public class FeedService {
                 ? new ArrayList<>()
                 : feedEntityList.stream().map(item -> {
 
+                    FeedFavIds feedFavIds = new FeedFavIds();
+                    feedFavIds.setIuser((long)authenticationFacade.getLoginUserPk());
+                    feedFavIds.setIfeed(item.getIfeed());
+                    int isFav = favRepository.findById(feedFavIds).isPresent() ? 1:0;
+
+                    List<String> picList = item.getFeedPicsEntityList()
+                            .stream()
+                            .map(pic ->
+                                    pic.getPic()
+                            ).collect(Collectors.toList());
 
                     List<FeedCommentSelVo> cmtList = commentRepository.findAllTop4ByFeedEntity(item)
                         .stream()
@@ -135,8 +144,10 @@ public class FeedService {
                                 .writerIuser(userEntity.getIuser().intValue())
                                 .writerNm(userEntity.getNm())
                                 .writerPic(userEntity.getPic())
+                                .pics(picList)
                                 .comments(cmtList)
                                 .isMoreComment(more)
+                                .isFav(isFav)
                                 .build();
                     }
                 ).collect(Collectors.toList());
