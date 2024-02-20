@@ -121,6 +121,12 @@ public class FeedService {
 
                     UserEntity userEntity = item.getUserEntity();
 
+                    int more = 0;
+                    if(cmtList.size() == 4){
+                        more = 1;
+                        cmtList.remove(cmtList.size()-1);
+                    }
+
                         return FeedSelVo.builder()
                                 .ifeed(item.getIfeed().intValue())
                                 .contents(item.getContents())
@@ -130,6 +136,7 @@ public class FeedService {
                                 .writerNm(userEntity.getNm())
                                 .writerPic(userEntity.getPic())
                                 .comments(cmtList)
+                                .isMoreComment(more)
                                 .build();
                     }
                 ).collect(Collectors.toList());
