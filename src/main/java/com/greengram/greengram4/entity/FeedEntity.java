@@ -27,7 +27,7 @@ public class FeedEntity extends BaseEntity{
     private String location;
 
     @ToString.Exclude//string으로 변환시 얘는 제외하고 변환  //양방향이라 무한루프 돌아서 넣음
-    @OneToMany(mappedBy = "feedEntity",cascade = CascadeType.PERSIST)  //양방향설정으로 영속성 전이(유지) picsRepository안만들어도됨
+    @OneToMany(mappedBy = "feedEntity",cascade = CascadeType.PERSIST)  //양방향 설정으로 영속성 전이(유지) picsRepository안만들어도됨
     // —> 영속성 전이 이게 빠져있으면 insert할 때 피드, 사진 두번 insert를 해야 하는데 내가 직접날리지않고 알아서 매핑하여 같이 보내줌
     private List<FeedPicsEntity> feedPicsEntityList = new ArrayList();
 
@@ -38,4 +38,7 @@ public class FeedEntity extends BaseEntity{
     // feedPicsEntityList 필드를 통해 연결되어 있습니다. 이 경우 @OneToMany(mappedBy = "feedEntity", cascade =
     // CascadeType.PERSIST)가 설정되어 있으므로, FeedEntity가 저장될 때 해당 FeedEntity에 속한 FeedPicsEntity도 함께 저장됩니다.
 
+    @ToString.Exclude
+    @OneToMany(mappedBy = "feedEntity")
+    private List<FeedFavEntity> feedFavList = new ArrayList();
 }

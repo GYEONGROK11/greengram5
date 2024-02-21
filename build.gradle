@@ -47,8 +47,7 @@ dependencies {
 // https://mvnrepository.com/artifact/com.google.firebase/firebase-admin
     implementation 'com.google.firebase:firebase-admin:9.2.0'
 
-    testCompileOnly 'org.projectlombok:lombok'
-    testAnnotationProcessor 'org.projectlombok:lombok'
+
 
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa' //jpa
 
@@ -61,11 +60,25 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
+
+    implementation 'com.querydsl:querydsl-jpa:5.1.0:jakarta'  //querydsl
+
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
+
     compileOnly 'org.projectlombok:lombok'
+
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
     runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
+
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok'
+    annotationProcessor "com.querydsl:querydsl-apt:${dependencyManagement.importedProperties['querydsl.version']}:jakarta"  //querydsl
+    //디펜던시매니지먼트 - 쿼리dsl버전을 그대로 가져옴(5.1.0임)
+    annotationProcessor "jakarta.annotation:jakarta.annotation-api"    //querydsl
+    annotationProcessor "jakarta.persistence:jakarta.persistence-api"  //querydsl
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.3'
     testImplementation 'org.springframework.security:spring-security-test'
@@ -74,3 +87,15 @@ dependencies {
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+//querydsl  Q클래스 만들기
+def generated = 'src/main/generated'
+
+tasks.withType(JavaCompile).configureEach {
+    options.getGeneratedSourceOutputDirectory().set(file(generated)) //Q클래스 만듦
+}
+
+sourceSets {main.java.srcDirs += [generated]}  //임포트해서 사용할수있도록 연결
+
+
+clean { delete file(generated) } //Q클래스 폴더 지움

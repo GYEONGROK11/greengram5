@@ -132,5 +132,6 @@ server:
       properties:
         hibernate:
           format_sql: true
+          default_batch_fetch_size: 40
       open-in-view: false
       generate-ddl: true

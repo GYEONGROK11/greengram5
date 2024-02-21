@@ -12,7 +12,7 @@ import java.util.List;
 
 
 // 해당 테이블, 그테이블의 pk타입
-public interface FeedRepository extends JpaRepository<FeedEntity, Long> {
+public interface FeedRepository extends JpaRepository<FeedEntity, Long>,FeedQdslRepository {
     @EntityGraph(attributePaths = {"userEntity"}) //그래프 탐색으로 같이 가져올 멤버필드  // 없으면 셀렉 두번됨
     List<FeedEntity> findAllByUserEntityOrderByIfeedDesc(UserEntity userEntity, Pageable pageable);
 
