@@ -7,6 +7,7 @@ import com.greengram.greengram4.exception.RestApiException;
 import com.greengram.greengram4.feed.model.*;
 import com.greengram.greengram4.security.AuthenticationFacade;
 import com.greengram.greengram4.user.UserRepository;
+import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Pageable;
@@ -28,6 +29,7 @@ public class FeedService {
     private final FeedCommentMapper commentMapper;
     private final FeedRepository repository;
     private final FeedCommentRepository commentRepository;
+    private final JPAQueryFactory jpaQueryFactory;
     private final FeedFavRepository favRepository;
     private final UserRepository userRepository;
     private final AuthenticationFacade authenticationFacade; //로그인과 관련
@@ -90,12 +92,14 @@ public class FeedService {
     }*/
 
     @Transactional
-    public List<FeedSelVo> getfeedAll(FeedSelDto dto, Pageable pageable) {
-        List<FeedSelVo> list = repository.selFeedAll(
-                authenticationFacade.getLoginUserPk()
-                ,dto.getTargetIuser(),pageable);
+    public List<FeedSelVo> getFeedAll(FeedSelDto dto, Pageable pageable) {
+        dto.setLoginedIuser(authenticationFacade.getLoginUserPk());
 
-        return list;
+        List<FeedEntity> list = repository.selFeedAll(dto, pageable);
+        List<FeedSelVo> list1 =list.stream().map(item ->
+                FeedSelVo.builder().build()
+                ).collect(Collectors.toList());
+        return list1;
     }
 
     /*@Transactional

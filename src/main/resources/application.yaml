@@ -127,11 +127,10 @@ server:
       driver-class-name: org.mariadb.jdbc.Driver
     jpa:
       hibernate:
-        ddl-auto: update
+        ddl-auto: create
       show-sql: true
       properties:
         hibernate:
           format_sql: true
-          default_batch_fetch_size: 40
       open-in-view: false
       generate-ddl: true

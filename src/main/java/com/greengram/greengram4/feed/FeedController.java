@@ -42,7 +42,7 @@ public class FeedController {
     @GetMapping
     public List<FeedSelVo> getFeedAll(FeedSelDto dto, @PageableDefault(page = 1, size = 30) Pageable pageable){
         log.info("pageable {}",pageable);
-        List<FeedSelVo> vo = service.getfeedAll(dto, pageable);
+        List<FeedSelVo> vo = service.getFeedAll(dto, pageable);
         log.info("{}",dto);
         return vo;
     }

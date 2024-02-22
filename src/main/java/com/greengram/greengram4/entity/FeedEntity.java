@@ -16,7 +16,9 @@ public class FeedEntity extends BaseEntity{
     @GeneratedValue(strategy = GenerationType.IDENTITY) //오토인클리먼트
     private Long ifeed;
 
-    @ManyToOne(fetch = FetchType.EAGER) //디폴트 (fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
+    //디폴트 (fetch = FetchType.EAGER) : 즉시로딩
+    //(fetch = FetchType.LAZY) : 지연로딩
     @JoinColumn(name = "iuser",nullable = false)
     private UserEntity userEntity;
 
