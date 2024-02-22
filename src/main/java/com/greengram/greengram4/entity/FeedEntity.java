@@ -40,7 +40,7 @@ public class FeedEntity extends BaseEntity{
     // feedPicsEntityList 필드를 통해 연결되어 있습니다. 이 경우 @OneToMany(mappedBy = "feedEntity", cascade =
     // CascadeType.PERSIST)가 설정되어 있으므로, FeedEntity가 저장될 때 해당 FeedEntity에 속한 FeedPicsEntity도 함께 저장됩니다.
 
-    @ToString.Exclude
+    /*@ToString.Exclude
     @OneToMany(mappedBy = "feedEntity")
-    private List<FeedFavEntity> feedFavList = new ArrayList();
+    private List<FeedFavEntity> feedFavList = new ArrayList();*/
 }

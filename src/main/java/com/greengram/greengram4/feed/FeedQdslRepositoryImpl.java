@@ -1,10 +1,9 @@
 package com.greengram.greengram4.feed;
 
 import com.greengram.greengram4.entity.FeedEntity;
-import com.greengram.greengram4.entity.UserEntity;
 import com.greengram.greengram4.feed.model.FeedSelDto;
-import com.greengram.greengram4.feed.model.FeedSelVo;
 import com.querydsl.core.types.dsl.BooleanExpression;
+import com.querydsl.jpa.impl.JPAQuery;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -12,7 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Pageable;
 
 import static com.greengram.greengram4.entity.QFeedEntity.feedEntity;
-import static com.greengram.greengram4.entity.QUserEntity.userEntity;
+import static com.greengram.greengram4.entity.QFeedFavEntity.feedFavEntity;
 
 
 import java.util.List;
@@ -25,18 +24,25 @@ public class FeedQdslRepositoryImpl implements FeedQdslRepository{
 
     @Override
     public List<FeedEntity> selFeedAll(FeedSelDto dto, Pageable pageable) {
-        List<FeedEntity> feedList = jpaQueryFactory.select(feedEntity)
+        JPAQuery<FeedEntity> jpaQuery = jpaQueryFactory.select(feedEntity)
                 .from(feedEntity)
                 .join(feedEntity.userEntity).fetchJoin() //피드하나당 유저정보(글쓴이)는 한명이라 페치조인으로 정보 다 들고오기
 
-                .where(whereTargetUser(dto.getTargetIuser())) //(whereTargetUser(targetIuser),whereTargetUser(targetIuser)) 쉼표로 and조건 사용가능
                 .orderBy(feedEntity.ifeed.desc())
                 .offset(pageable.getOffset())
-                .limit(pageable.getPageSize())
-                .fetch();
+                .limit(pageable.getPageSize());
+
+        if(dto.getIsFavList() == 1){
+            jpaQuery.join(feedFavEntity)
+                    .on(feedEntity.ifeed.eq(feedFavEntity.feedEntity.ifeed)
+                            , feedFavEntity.userEntity.iuser.eq(dto.getLoginedIuser()));
+        } else {
+            jpaQuery.where(whereTargetUser(dto.getTargetIuser()));//(whereTargetUser(targetIuser),whereTargetUser(targetIuser)) 쉼표로 and조건 사용가능
+
+        }
 
 
-        return feedList;
+        return jpaQuery.fetch();
 
 
         /*return feedList.stream().map(item ->

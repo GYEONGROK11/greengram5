@@ -99,7 +99,7 @@ public class FeedService {
         List<FeedSelVo> list1 =list.stream().map(item ->
                 FeedSelVo.builder().build()
                 ).collect(Collectors.toList());
-        return list1;
+        return null;
     }
 
     /*@Transactional
