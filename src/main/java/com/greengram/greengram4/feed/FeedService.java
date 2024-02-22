@@ -93,18 +93,32 @@ public class FeedService {
 
     @Transactional
     public List<FeedSelVo> getFeedAll(FeedSelDto dto, Pageable pageable) {
+
         dto.setLoginedIuser(authenticationFacade.getLoginUserPk());
 
-        List<FeedEntity> list = repository.selFeedAll(dto, pageable);
+        final List<FeedEntity> list = repository.selFeedAll(dto, pageable);
 
-        List<FeedPicsEntity> picList = repository.selFeedPicsAll(list);
+        final List<FeedPicsEntity> picList = repository.selFeedPicsAll(list);
 
+        final List<FeedFavEntity> favList = dto.getIsFavList() == 1 ? null : repository.selFeedFavAllByMe(list, dto.getLoginedIuser());
+
+        final List<FeedCommentSelVo> cmtList = commentMapper.selFeedCommentEachTop4(list);
         //function 파라미터와 리턴타입이 있음
         //consumer 파라미터만 있음 void
-        //Predicate 조건을 주고 true만 리턴해서 filter로 리스트 사이즈 조절  ex(item -> item %2==0)
+        //Predicate 파라미터 있고 리턴타입이 불린 //조건을 주고 true만 리턴  ex(item -> item %2==0)
+        //supplier 파라미터가 없고 리턴타입만 있음
+        return list.stream().map(item -> {
+            List<FeedCommentSelVo> eachCommentList = cmtList.stream()
+                    .filter(cmt -> cmt.getIfeed() == item.getIfeed())
+                    .collect(Collectors.toList());
 
-        return list.stream().map(item ->
-                FeedSelVo.builder()
+                    int isMoreComment = 0;
+                    if(eachCommentList.size() == 4){
+                        isMoreComment = 1;
+                        eachCommentList.remove(eachCommentList.size() - 1);
+                    }
+
+            return FeedSelVo.builder()
                         .ifeed(item.getIfeed().intValue())
                         .contents(item.getContents())
                         .location(item.getContents())
@@ -118,10 +132,16 @@ public class FeedService {
                                 ).map(pic -> pic.getPic()
                                 ).collect(Collectors.toList()) //List
                         )
-//                        .comments(cmtList)
-//                        .isMoreComment(isMoreComment)
-//                        .isFav(isFav)
-                        .build()
+                        .isFav(dto.getIsFavList() == 1
+                                ? 1
+                                : favList.stream().anyMatch(fav -> fav.getFeedEntity().getIfeed() == item.getIfeed())
+                                ? 1
+                                : 0)
+                        .comments(eachCommentList)
+                        .isMoreComment(isMoreComment)
+                        .build();
+
+        }
         ).collect(Collectors.toList());
     }
 

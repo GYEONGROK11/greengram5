@@ -21,4 +21,5 @@ public class OpenApiController {
     public List<ApartmentTransactionDetailVo> getApartment(ApartmentTransactionDetailDto dto) throws Exception {
         return service.getApartmentTransactionList(dto);
     }
+
 }
