@@ -97,6 +97,12 @@ public class FeedService {
 
         List<FeedEntity> list = repository.selFeedAll(dto, pageable);
 
+        List<FeedPicsEntity> picList = repository.selFeedPicsAll(list);
+
+        //function 파라미터와 리턴타입이 있음
+        //consumer 파라미터만 있음 void
+        //Predicate 조건을 주고 true만 리턴해서 filter로 리스트 사이즈 조절  ex(item -> item %2==0)
+
         return list.stream().map(item ->
                 FeedSelVo.builder()
                         .ifeed(item.getIfeed().intValue())
@@ -106,11 +112,12 @@ public class FeedService {
                         .writerIuser(item.getUserEntity().getIuser().intValue())
                         .writerNm(item.getUserEntity().getNm())
                         .writerPic(item.getUserEntity().getPic())
-                        .pics(item.getFeedPicsEntityList()
-                                .stream()
-                                .map(pic ->
-                                        pic.getPic()
-                                ).collect(Collectors.toList()))
+                        .pics(picList.stream()
+                                .filter(pic ->      //filter는 타입은 같음 list 사이즈만 다름
+                                pic.getFeedEntity().getIfeed() == item.getIfeed()
+                                ).map(pic -> pic.getPic()
+                                ).collect(Collectors.toList()) //List
+                        )
 //                        .comments(cmtList)
 //                        .isMoreComment(isMoreComment)
 //                        .isFav(isFav)
