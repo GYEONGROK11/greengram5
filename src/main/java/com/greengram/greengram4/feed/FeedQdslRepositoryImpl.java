@@ -1,7 +1,9 @@
 package com.greengram.greengram4.feed;
 
 import com.greengram.greengram4.entity.FeedEntity;
+import com.greengram.greengram4.entity.FeedPicsEntity;
 import com.greengram.greengram4.feed.model.FeedSelDto;
+import com.querydsl.core.types.Projections;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQuery;
 import com.querydsl.jpa.impl.JPAQueryFactory;
@@ -12,6 +14,7 @@ import org.springframework.data.domain.Pageable;
 
 import static com.greengram.greengram4.entity.QFeedEntity.feedEntity;
 import static com.greengram.greengram4.entity.QFeedFavEntity.feedFavEntity;
+import static com.greengram.greengram4.entity.QFeedPicsEntity.feedPicsEntity;
 
 
 import java.util.List;
@@ -24,7 +27,7 @@ public class FeedQdslRepositoryImpl implements FeedQdslRepository{
 
     @Override
     public List<FeedEntity> selFeedAll(FeedSelDto dto, Pageable pageable) {
-        JPAQuery<FeedEntity> jpaQuery = jpaQueryFactory.select(feedEntity)
+        JPAQuery<FeedEntity> jpaQuery = jpaQueryFactory.select(feedEntity) //.selectfrom(feedEntity)
                 .from(feedEntity)
                 .join(feedEntity.userEntity).fetchJoin() //피드하나당 유저정보(글쓴이)는 한명이라 페치조인으로 정보 다 들고오기
 
@@ -61,6 +64,16 @@ public class FeedQdslRepositoryImpl implements FeedQdslRepository{
                         )? 1 : 0)
 
                         .build()).collect(Collectors.toList());*/
+    }
+
+    @Override
+    public List<FeedPicsEntity> selFeedPicsAll(List<FeedEntity> feedEntityList) {
+        return jpaQueryFactory.select(Projections.fields(FeedPicsEntity.class
+                , feedPicsEntity.feedEntity
+                , feedPicsEntity.pic))
+                .from(feedPicsEntity)
+                .where(feedPicsEntity.feedEntity.in(feedEntityList))
+                .fetch();
     }
 
     private BooleanExpression whereTargetUser(long targetIuser){
