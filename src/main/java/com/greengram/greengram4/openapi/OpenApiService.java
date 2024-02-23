@@ -32,13 +32,15 @@ public class OpenApiService {
 
     public List<ApartmentTransactionDetailVo> getApartmentTransactionList(ApartmentTransactionDetailDto dto) throws Exception{
 
+
         DefaultUriBuilderFactory factory =
                 new DefaultUriBuilderFactory(openApiProperties.getApartment().getBaseUrl());
-        factory.setEncodingMode(DefaultUriBuilderFactory.EncodingMode.VALUES_ONLY);
+        factory.setEncodingMode(DefaultUriBuilderFactory.EncodingMode.VALUES_ONLY);//web클라이언트 방식 - 인코딩 한번더 하지말라는 설정
 
+        //web클라이언트 방식   인코딩이 자동으로됨
         WebClient webClient = WebClient.builder()
                 .uriBuilderFactory(factory)
-                .filters(exchangeFilterFunctions -> exchangeFilterFunctions.add(logRequest()))
+                .filters(exchangeFilterFunctions -> exchangeFilterFunctions.add(logRequest())) //로그보기
                 //.clientConnector(new JettyClientHttpConnector(httpClient))
                 .baseUrl(openApiProperties.getApartment().getBaseUrl())
                 .build();
@@ -59,10 +61,12 @@ public class OpenApiService {
                 }
         ).retrieve()
          .bodyToMono(String.class)
-         .block();
-
+         .block();  //비동기를 동기로 바꾼다 통신이 끝날 때 까지 기다림
+                    //비동기 상태면 통신이 끝나지 않아도 json에 데이터가 없어도 코드가 실행됨
         log.info("data : {}", data);
-        ObjectMapper om  =new XmlMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,false);
+        ObjectMapper om  =new XmlMapper() //xml파일을 json으로
+                .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES
+                        ,false);
         JsonNode jsonNode = om.readTree(data);
         List<ApartmentTransactionDetailVo> list = om.convertValue(
                 jsonNode.path("body")
