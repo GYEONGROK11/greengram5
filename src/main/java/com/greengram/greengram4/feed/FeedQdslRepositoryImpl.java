@@ -32,7 +32,6 @@ public class FeedQdslRepositoryImpl implements FeedQdslRepository{
         JPAQuery<FeedEntity> jpaQuery = jpaQueryFactory.select(feedEntity) //.selectfrom(feedEntity)
                 .from(feedEntity)
                 .join(feedEntity.userEntity).fetchJoin() //피드하나당 유저정보(글쓴이)는 한명이라 페치조인으로 정보 다 들고오기
-
                 .orderBy(feedEntity.ifeed.desc())
                 .offset(pageable.getOffset())
                 .limit(pageable.getPageSize());

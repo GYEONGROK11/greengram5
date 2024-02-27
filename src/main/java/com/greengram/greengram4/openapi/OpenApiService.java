@@ -64,7 +64,7 @@ public class OpenApiService {
          .block();  //비동기를 동기로 바꾼다 통신이 끝날 때 까지 기다림
                     //비동기 상태면 통신이 끝나지 않아도 json에 데이터가 없어도 코드가 실행됨
         log.info("data : {}", data);
-        ObjectMapper om  =new XmlMapper() //xml파일을 json으로
+        ObjectMapper om  = new XmlMapper() //xml파일을 json으로
                 .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES
                         ,false);
         JsonNode jsonNode = om.readTree(data);
